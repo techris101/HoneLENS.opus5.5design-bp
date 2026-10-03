@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+.npm/
+
+# OS and IDE files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Build and packaging output
+dist/
+*.zip
+artifacts/
+
+# Antigravity artifacts
+.gemini/

@@ -1,0 +1,22 @@
+{
+  "name": "honelens",
+  "version": "1.0.0",
+  "description": "AI-free research source checker, dosage math trainer, stats calculator, EBP assignment builder, and document auditor for nursing students.",
+  "main": "background/service-worker.js",
+  "type": "module",
+  "scripts": {
+    "test": "node tests/run-tests.js",
+    "package": "node scripts/package-extension.js"
+  },
+  "keywords": [
+    "chrome-extension",
+    "nursing",
+    "ebp",
+    "evidence-based-practice",
+    "dosage-calculations",
+    "apa7",
+    "honenurse"
+  ],
+  "author": "HoneNurse",
+  "license": "UNLICENSED"
+}

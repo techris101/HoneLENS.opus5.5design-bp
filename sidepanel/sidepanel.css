@@ -1,0 +1,50 @@
+/* HoneLENS Side Panel Styling */
+
+.sidepanel-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: var(--hn-s3);
+  background-color: var(--hn-paper);
+}
+
+.sidepanel-header {
+  padding-bottom: var(--hn-s2);
+  margin-bottom: var(--hn-s2);
+  border-bottom: 1px solid var(--hn-hair);
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--hn-s2);
+}
+
+.brand-title {
+  font-family: var(--hn-sans);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--hn-navy);
+}
+
+.sp-content {
+  display: none;
+  flex: 1;
+}
+
+.sp-content.active {
+  display: block;
+}
+
+.sp-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--hn-navy);
+  line-height: 1.35;
+}
+
+.criteria-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}

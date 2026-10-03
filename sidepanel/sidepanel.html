@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HoneLENS Companion</title>
+  <link rel="stylesheet" href="../styles/tokens.css">
+  <link rel="stylesheet" href="../styles/common.css">
+  <link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+  <div class="sidepanel-container">
+    <!-- Header -->
+    <header class="sidepanel-header hn-flex-between">
+      <div class="header-brand">
+        <svg viewBox="0 0 130 175" width="20" height="26" role="img" aria-label="HoneLENS logo">
+          <rect x="15.75" y="77.88" width="98.00" height="19.25" fill="var(--hn-teal)"/>
+          <polygon points="0.00,175.00 0.00,31.50 31.50,0.00 31.50,175.00" fill="var(--hn-navy)"/>
+          <polygon points="98.00,0.00 129.50,0.00 129.50,143.50 98.00,175.00" fill="var(--hn-navy)"/>
+        </svg>
+        <span class="brand-title">Hone<span style="color: var(--hn-teal);">LENS</span> Companion</span>
+      </div>
+      <button id="btn-open-full-workspace" class="hn-btn hn-btn-sm hn-btn-secondary" title="Expand to Full Workspace">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+        Full Tab
+      </button>
+    </header>
+
+    <!-- Side Panel Tabs -->
+    <nav class="hn-tab-bar">
+      <button class="hn-tab-btn active" data-tab="sp-tab-inspect">Source Inspect</button>
+      <button class="hn-tab-btn" data-tab="sp-tab-reading">Reading Sheet</button>
+      <button class="hn-tab-btn" data-tab="sp-tab-card">Quick Card</button>
+    </nav>
+
+    <!-- 1. Source Inspect Tab -->
+    <section id="sp-tab-inspect" class="sp-content active">
+      <div class="hn-card">
+        <div class="hn-flex-between">
+          <span class="hn-label" style="margin: 0;">Active Page Metadata</span>
+          <button id="btn-refresh-active" class="hn-btn hn-btn-sm hn-btn-secondary">Refresh</button>
+        </div>
+
+        <div id="sp-article-title" class="sp-title" style="margin-top: 8px;">No supported source detected yet</div>
+        <div id="sp-article-meta" class="hn-secondary hn-text-xs" style="margin: 4px 0 10px;"></div>
+
+        <div class="hn-form-group" style="margin-bottom: 8px;">
+          <label class="hn-label" for="sp-manual-doi">Or lookup by DOI/PMID</label>
+          <div class="hn-flex-gap">
+            <input type="text" id="sp-manual-doi" class="hn-input" placeholder="10.xxxx/... or PMID">
+            <button id="btn-sp-check" class="hn-btn hn-btn-primary">Check</button>
+          </div>
+        </div>
+
+        <div id="sp-retraction-alert" class="hn-callout hn-callout-danger" style="display: none;"></div>
+      </div>
+
+      <!-- Rubric Criteria Evaluation Card -->
+      <div id="sp-eval-card" class="hn-card" style="display: none;">
+        <div class="hn-flex-between">
+          <h3 style="margin: 0;">Criteria Evaluation</h3>
+          <span id="sp-eval-badge" class="hn-badge"></span>
+        </div>
+        <div id="sp-criteria-items" class="criteria-list" style="margin-top: 8px;"></div>
+        <div id="sp-framework-box" class="hn-callout hn-callout-amber" style="display: none; margin-top: 8px;"></div>
+        
+        <div class="hn-flex-gap" style="margin-top: 12px;">
+          <button id="btn-add-to-assignment" class="hn-btn hn-btn-sm hn-btn-primary" style="flex: 1;">Add to Assignment</button>
+          <button id="btn-sp-copy-apa" class="hn-btn hn-btn-sm hn-btn-secondary">Copy APA</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Reading Sheet Tab -->
+    <section id="sp-tab-reading" class="sp-content">
+      <div class="hn-card">
+        <h3 style="margin: 0 0 6px;">Original Appraisal Prompts</h3>
+        <p class="hn-secondary hn-text-xs" style="margin-bottom: 12px;">Record your analysis while reading. Retains your personal clinical reasoning.</p>
+
+        <div class="hn-form-group">
+          <label class="hn-label" for="rs-question">1. Clinical Question & Purpose</label>
+          <textarea id="rs-question" class="hn-textarea" placeholder="What specific clinical question was investigated?"></textarea>
+        </div>
+
+        <div class="hn-form-group">
+          <label class="hn-label" for="rs-design">2. Study Design & Architecture</label>
+          <input type="text" id="rs-design" class="hn-input" placeholder="e.g. Double-blind RCT, prospective cohort, phenomenological">
+        </div>
+
+        <div class="hn-form-group">
+          <label class="hn-label" for="rs-sample">3. Sample, Setting & Recruitment</label>
+          <textarea id="rs-sample" class="hn-textarea" placeholder="Sample size (N), inclusion/exclusion, hospital setting..."></textarea>
+        </div>
+
+        <div class="hn-form-group">
+          <label class="hn-label" for="rs-findings">4. Key Findings & Effect Measures</label>
+          <textarea id="rs-findings" class="hn-textarea" placeholder="Primary outcomes, effect size, p-values, 95% CIs..."></textarea>
+        </div>
+
+        <div class="hn-form-group">
+          <label class="hn-label" for="rs-limitations">5. Limitations & Bias</label>
+          <textarea id="rs-limitations" class="hn-textarea" placeholder="Attrition, confounding variables, generalizability..."></textarea>
+        </div>
+
+        <div class="hn-form-group">
+          <label class="hn-label" for="rs-relevance">6. Nursing Relevance to Practice</label>
+          <textarea id="rs-relevance" class="hn-textarea" placeholder="How does this apply to bedside care or policy?"></textarea>
+        </div>
+
+        <button id="btn-save-reading-sheet" class="hn-btn hn-btn-primary" style="width: 100%;">Save Reading Sheet</button>
+      </div>
+    </section>
+
+    <!-- 3. Quick Card Tab -->
+    <section id="sp-tab-card" class="sp-content">
+      <div class="hn-card">
+        <h3 style="margin: 0 0 6px;">New Flashcard (Leitner Schedule)</h3>
+        <p class="hn-secondary hn-text-xs" style="margin-bottom: 12px;">Student-authored Q&amp;A anchored to current source.</p>
+
+        <div class="hn-form-group">
+          <label class="hn-label" for="card-front">Question (Front)</label>
+          <textarea id="card-front" class="hn-textarea" placeholder="e.g. What is the recommended apical pulse threshold before withholding digoxin?"></textarea>
+        </div>
+
+        <div class="hn-form-group">
+          <label class="hn-label" for="card-back">Answer &amp; Rationale (Back)</label>
+          <textarea id="card-back" class="hn-textarea" placeholder="e.g. Withhold if apical heart rate is below 60 bpm. A slow pulse can indicate toxic accumulation."></textarea>
+        </div>
+
+        <div class="hn-form-group">
+          <label class="hn-label" for="card-locator">Source / Page Locator</label>
+          <input type="text" id="card-locator" class="hn-input" placeholder="e.g. Page 4, Section 3.2">
+        </div>
+
+        <button id="btn-save-card" class="hn-btn hn-btn-primary" style="width: 100%;">Create Leitner Card</button>
+      </div>
+
+      <div id="card-save-status" class="hn-callout" style="display: none;"></div>
+    </section>
+  </div>
+
+  <script type="module" src="sidepanel.js"></script>
+</body>
+</html>

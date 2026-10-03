@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HoneLENS</title>
+  <link rel="stylesheet" href="../styles/tokens.css">
+  <link rel="stylesheet" href="../styles/common.css">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="popup-header">
+      <div class="header-brand">
+        <svg class="header-logo" viewBox="0 0 130 175" width="22" height="30" role="img" aria-label="HoneLENS logo">
+          <rect x="15.75" y="77.88" width="98.00" height="19.25" fill="var(--hn-teal)"/>
+          <polygon points="0.00,175.00 0.00,31.50 31.50,0.00 31.50,175.00" fill="var(--hn-navy)"/>
+          <polygon points="98.00,0.00 129.50,0.00 129.50,143.50 98.00,175.00" fill="var(--hn-navy)"/>
+        </svg>
+        <div>
+          <span class="brand-title">Hone<span class="brand-accent">LENS</span></span>
+          <span class="brand-sub">Keep trusted sources in view</span>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button id="btn-open-sidepanel" class="hn-btn hn-btn-sm hn-btn-secondary" title="Open Side Panel">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M15 3v18"/></svg>
+          Side Panel
+        </button>
+        <button id="btn-open-workspace" class="hn-btn hn-btn-sm hn-btn-primary" title="Open Full Workspace">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Workspace
+        </button>
+      </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="popup-nav hn-tab-bar">
+      <button class="hn-tab-btn active" data-tab="tab-source">Source Check</button>
+      <button class="hn-tab-btn" data-tab="tab-dosage">Dosage Math</button>
+      <button class="hn-tab-btn" data-tab="tab-stats">Stats</button>
+      <button class="hn-tab-btn" data-tab="tab-capture">Capture</button>
+    </nav>
+
+    <!-- Tab 1: Source Check -->
+    <section id="tab-source" class="popup-tab-content active">
+      <div id="detected-meta-card" class="hn-card hn-card-sm" style="display: none;">
+        <div class="hn-flex-between">
+          <span class="hn-badge hn-badge-match">Active Page Detected</span>
+          <span id="detected-type" class="hn-secondary hn-text-xs"></span>
+        </div>
+        <div id="detected-title" class="detected-title"></div>
+        <div class="detected-meta hn-secondary hn-text-xs">
+          <span id="detected-authors"></span> &bull; <span id="detected-year"></span>
+        </div>
+        <button id="btn-evaluate-active" class="hn-btn hn-btn-sm hn-btn-primary" style="margin-top: 8px; width: 100%;">Evaluate Active Source</button>
+      </div>
+
+      <div class="hn-form-group">
+        <label class="hn-label" for="input-doi-pmid">Check by DOI or PMID</label>
+        <div class="hn-flex-gap">
+          <input type="text" id="input-doi-pmid" class="hn-input" placeholder="e.g. 10.1016/j.ijnurstu... or 34891234">
+          <button id="btn-check-source" class="hn-btn hn-btn-primary">Check</button>
+        </div>
+      </div>
+
+      <!-- Live Evaluation Result Container -->
+      <div id="source-eval-container" style="display: none;">
+        <div class="hn-card">
+          <div class="hn-flex-between">
+            <h3 id="result-source-title" style="margin: 0; font-size: 14px;"></h3>
+            <span id="result-status-badge" class="hn-badge"></span>
+          </div>
+          <p id="result-source-meta" class="hn-secondary hn-text-xs" style="margin: 4px 0 8px;"></p>
+          
+          <div id="result-criteria-list" class="criteria-list"></div>
+
+          <div id="result-retraction-box" class="hn-callout" style="display: none; margin-top: 8px;"></div>
+          <div id="result-framework-box" class="hn-callout hn-callout-amber" style="display: none; margin-top: 8px;"></div>
+
+          <div class="hn-flex-gap" style="margin-top: 10px;">
+            <button id="btn-save-to-library" class="hn-btn hn-btn-sm hn-btn-secondary">Save to Library</button>
+            <button id="btn-copy-citation" class="hn-btn hn-btn-sm hn-btn-secondary">Copy APA 7</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="privacy-note hn-secondary hn-text-xs">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        AI-free & local-first. Metadata lookups send only raw identifiers to Crossref/PubMed.
+      </div>
+    </section>
+
+    <!-- Tab 2: Dosage Math -->
+    <section id="tab-dosage" class="popup-tab-content">
+      <div class="hn-flex-between" style="margin-bottom: 8px;">
+        <span class="hn-label" style="margin: 0;">Practice Problem</span>
+        <button id="btn-new-dosage" class="hn-btn hn-btn-sm hn-btn-secondary">New Problem</button>
+      </div>
+
+      <div class="hn-card">
+        <div id="dosage-prompt" class="dosage-prompt-text">Click 'New Problem' to practice.</div>
+        <div id="dosage-rounding-rule" class="hn-secondary hn-text-xs" style="margin-top: 6px;"></div>
+
+        <div class="hn-form-group" style="margin-top: 12px; margin-bottom: 0;">
+          <label class="hn-label" for="dosage-user-answer">Your Answer (<span id="dosage-target-unit">units</span>):</label>
+          <div class="hn-flex-gap">
+            <input type="number" step="any" id="dosage-user-answer" class="hn-input hn-calc-num" placeholder="e.g. 2.5">
+            <button id="btn-check-dosage" class="hn-btn hn-btn-primary">Submit</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="dosage-feedback-card" class="hn-card" style="display: none;">
+        <div id="dosage-feedback-header" class="hn-flex-between">
+          <span id="dosage-feedback-badge" class="hn-badge"></span>
+          <span id="dosage-correct-answer" class="hn-calc-num hn-text-xs"></span>
+        </div>
+        <div id="dosage-worked-steps" class="worked-steps-box" style="margin-top: 8px;"></div>
+      </div>
+
+      <div class="hn-secondary hn-text-xs" style="text-align: center; margin-top: 6px;">
+        Educational practice tool only. Not for medication administration orders.
+      </div>
+    </section>
+
+    <!-- Tab 3: Stats Calculator -->
+    <section id="tab-stats" class="popup-tab-content">
+      <div class="hn-card hn-card-sm">
+        <div class="hn-label">2×2 Contingency Table (Event Counts)</div>
+        <div class="table-2x2-grid">
+          <div>
+            <span class="hn-text-xs hn-secondary">Exp. Events (a)</span>
+            <input type="number" id="stats-a" class="hn-input hn-calc-num" placeholder="e.g. 15">
+          </div>
+          <div>
+            <span class="hn-text-xs hn-secondary">Exp. Non-events (b)</span>
+            <input type="number" id="stats-b" class="hn-input hn-calc-num" placeholder="e.g. 85">
+          </div>
+          <div>
+            <span class="hn-text-xs hn-secondary">Ctrl. Events (c)</span>
+            <input type="number" id="stats-c" class="hn-input hn-calc-num" placeholder="e.g. 30">
+          </div>
+          <div>
+            <span class="hn-text-xs hn-secondary">Ctrl. Non-events (d)</span>
+            <input type="number" id="stats-d" class="hn-input hn-calc-num" placeholder="e.g. 70">
+          </div>
+        </div>
+        <div style="margin-top: 8px;">
+          <button id="btn-calc-stats" class="hn-btn hn-btn-sm hn-btn-primary" style="width: 100%;">Calculate Effects (RR, OR, ARR, NNT)</button>
+        </div>
+      </div>
+
+      <div id="stats-result-box" class="hn-card hn-card-sm" style="display: none;">
+        <div class="stats-grid-results">
+          <div><span class="hn-secondary hn-text-xs">Risk Ratio (RR):</span> <b id="stat-rr" class="hn-calc-num">-</b></div>
+          <div><span class="hn-secondary hn-text-xs">Odds Ratio (OR):</span> <b id="stat-or" class="hn-calc-num">-</b></div>
+          <div><span class="hn-secondary hn-text-xs">Abs. Risk Red. (ARR):</span> <b id="stat-arr" class="hn-calc-num">-</b></div>
+          <div><span class="hn-secondary hn-text-xs">NNT / NNH:</span> <b id="stat-nnt" class="hn-calc-num">-</b></div>
+        </div>
+        <div id="stat-interpretation" class="hn-callout hn-callout-explanation hn-text-xs" style="margin-top: 8px;"></div>
+      </div>
+    </section>
+
+    <!-- Tab 4: Capture & Clipper -->
+    <section id="tab-capture" class="popup-tab-content">
+      <div class="hn-card">
+        <h3 style="margin-top: 0;">Screen Capture</h3>
+        <p class="hn-secondary hn-text-xs">Capture visible webpage area and attach URL and timestamp into your research trail.</p>
+        <button id="btn-capture-tab" class="hn-btn hn-btn-primary" style="width: 100%;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          Capture Visible Tab
+        </button>
+      </div>
+
+      <div id="capture-status-box" class="hn-callout" style="display: none;"></div>
+
+      <div class="hn-card" style="margin-top: 8px;">
+        <h3 style="margin-top: 0;">Selected Text Clipper</h3>
+        <p class="hn-secondary hn-text-xs">Select any quotation or finding on this webpage, then click below to store it in your library.</p>
+        <button id="btn-clip-active-tab" class="hn-btn hn-btn-secondary" style="width: 100%;">Clip Selected Text</button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="popup-footer hn-flex-between">
+      <span id="popup-plan-indicator" class="hn-badge hn-badge-unknown">HoneLENS Free</span>
+      <a href="#" id="link-more-honenurse" class="hn-secondary hn-text-xs" style="text-decoration: none;">Sharpen your clinical judgment &rarr;</a>
+    </footer>
+  </div>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

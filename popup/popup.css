@@ -1,0 +1,135 @@
+/* HoneLENS Compact Popup Styling */
+
+.popup-container {
+  width: 380px;
+  min-height: 480px;
+  background-color: var(--hn-paper);
+  padding: var(--hn-s3);
+  display: flex;
+  flex-direction: column;
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: var(--hn-s2);
+  margin-bottom: var(--hn-s2);
+  border-bottom: 1px solid var(--hn-hair);
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--hn-s2);
+}
+
+.brand-title {
+  font-family: var(--hn-sans);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--hn-navy);
+  display: block;
+  line-height: 1.1;
+}
+
+.brand-accent {
+  color: var(--hn-teal);
+}
+
+.brand-sub {
+  font-family: var(--hn-sans);
+  font-size: 10px;
+  color: var(--hn-slate);
+  display: block;
+}
+
+.header-actions {
+  display: flex;
+  gap: 4px;
+}
+
+/* Tab Content */
+.popup-tab-content {
+  display: none;
+  flex: 1;
+}
+
+.popup-tab-content.active {
+  display: block;
+}
+
+.hn-card-sm {
+  padding: var(--hn-s3);
+  margin-bottom: var(--hn-s3);
+}
+
+.detected-title {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 6px 0 2px;
+  color: var(--hn-navy);
+  line-height: 1.3;
+}
+
+.criteria-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.criterion-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 4px 6px;
+  background: var(--hn-panel);
+  border-radius: var(--hn-radius-sm);
+  font-size: 11px;
+}
+
+.table-2x2-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.stats-grid-results {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  padding: 4px 0;
+}
+
+.dosage-prompt-text {
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--hn-navy);
+}
+
+.worked-steps-box {
+  background-color: var(--hn-panel);
+  border-radius: var(--hn-radius-sm);
+  padding: 8px;
+  font-size: 11px;
+  line-height: 1.4;
+  border-left: 3px solid var(--hn-teal);
+}
+
+.privacy-note {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 6px 8px;
+  background-color: var(--hn-panel);
+  border-radius: var(--hn-radius-sm);
+}
+
+.popup-footer {
+  margin-top: auto;
+  padding-top: var(--hn-s2);
+  border-top: 1px solid var(--hn-hair);
+}

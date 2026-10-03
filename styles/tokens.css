@@ -1,0 +1,129 @@
+/* HoneNurse / HoneLENS Design Tokens v1.0
+   Shared tokens for Chrome extension popup, sidepanel, and workspace.
+   Strict adherence to HoneNurse Brand Identity.
+*/
+
+:root {
+  /* Brand Core Palette - Each color has one job */
+  --hn-navy:        #18324A;  /* brand, headings, navigation, major UI */
+  --hn-evergreen:   #143B3B;  /* primary text, wordmark, dark surfaces */
+  --hn-teal:        #1F6F78;  /* accent: selected, correct, primary action */
+  --hn-teal-tint:   #E3F0F1;  /* fill behind explanations */
+  --hn-teal-light:  #7CC4CB;  /* teal on dark surfaces */
+  --hn-edge:        #C9E85E;  /* actions, progress, focus, logo accent */
+  --hn-paper:       #F8F8F5;  /* page background and reading surface */
+  --hn-white:       #FFFFFF;  /* raised surfaces, cards, reversed text */
+  --hn-panel:       #EFEFEA;  /* quiet fill: tables, secondary containers */
+  --hn-slate:       #5E6A72;  /* secondary text, metadata */
+  --hn-hair:        #D3D1C7;  /* dividers and decorative rules only */
+  --hn-field:       #7A858C;  /* borders of inputs and buttons */
+  
+  /* Status & Clinical Meaning - Never color alone */
+  --hn-amber:       #7A4A0A;  /* review and act: notes, wrong answers, caution */
+  --hn-amber-tint:  #FAEEDA;
+  --hn-red:         #A32D2D;  /* patient danger ONLY. Never a simple UI error */
+  --hn-red-tint:    #FCEBEB;
+  --hn-success:     #1F6F78;  /* correct calculations / passing checks */
+  --hn-success-tint:#E3F0F1;
+  --hn-focus:       #1F6F78;
+
+  /* Typography */
+  --hn-sans:  "IBM Plex Sans", "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --hn-serif: "IBM Plex Serif", "Georgia", "Times New Roman", serif;
+  --hn-mono:  "IBM Plex Mono", Consolas, "Courier New", monospace;
+
+  --hn-text-display: 34px;
+  --hn-text-title:   24px;
+  --hn-text-section: 19px;
+  --hn-text-body:    16px;
+  --hn-text-small:   13px;
+  --hn-text-xs:      11px;
+  --hn-measure:      68ch;
+
+  /* Spacing: 4px base */
+  --hn-s1: 4px;
+  --hn-s2: 8px;
+  --hn-s3: 12px;
+  --hn-s4: 16px;
+  --hn-s5: 24px;
+  --hn-s6: 32px;
+  --hn-s7: 48px;
+  --hn-s8: 64px;
+
+  /* Restrained Shapes */
+  --hn-radius-sm: 3px;
+  --hn-radius:    4px;
+  --hn-radius-lg: 8px;
+  --hn-callout-bar: 4px;
+
+  /* Shadows (subtle & restrained) */
+  --hn-shadow-sm: 0 1px 2px rgba(24, 50, 74, 0.05);
+  --hn-shadow:    0 2px 5px rgba(24, 50, 74, 0.08);
+  --hn-shadow-lg: 0 6px 16px rgba(24, 50, 74, 0.12);
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --hn-paper:       #0F1B27;
+    --hn-white:       #162636;
+    --hn-panel:       #1B2E41;
+    --hn-hair:        #26384A;
+    --hn-field:       #6E7F8D;
+    --hn-navy:        #E8ECEF;
+    --hn-evergreen:   #E8ECEF;
+    --hn-slate:       #9AA8B2;
+    --hn-teal:        #6FB7BE;
+    --hn-teal-tint:   #12303A;
+    --hn-teal-light:  #A4E1E6;
+    --hn-focus:       #6FB7BE;
+    --hn-amber:       #E0B060;
+    --hn-amber-tint:  #302410;
+    --hn-red:         #F0948D;
+    --hn-red-tint:    #3A1A19;
+    --hn-success:     #6FB7BE;
+    --hn-success-tint:#12303A;
+  }
+}
+
+:root[data-theme="dark"] {
+  --hn-paper:       #0F1B27;
+  --hn-white:       #162636;
+  --hn-panel:       #1B2E41;
+  --hn-hair:        #26384A;
+  --hn-field:       #6E7F8D;
+  --hn-navy:        #E8ECEF;
+  --hn-evergreen:   #E8ECEF;
+  --hn-slate:       #9AA8B2;
+  --hn-teal:        #6FB7BE;
+  --hn-teal-tint:   #12303A;
+  --hn-teal-light:  #A4E1E6;
+  --hn-focus:       #6FB7BE;
+  --hn-amber:       #E0B060;
+  --hn-amber-tint:  #302410;
+  --hn-red:         #F0948D;
+  --hn-red-tint:    #3A1A19;
+  --hn-success:     #6FB7BE;
+  --hn-success-tint:#12303A;
+}
+
+:root[data-theme="light"] {
+  --hn-paper:       #F8F8F5;
+  --hn-white:       #FFFFFF;
+  --hn-panel:       #EFEFEA;
+  --hn-hair:        #D3D1C7;
+  --hn-field:       #7A858C;
+  --hn-navy:        #18324A;
+  --hn-evergreen:   #143B3B;
+  --hn-slate:       #5E6A72;
+  --hn-teal:        #1F6F78;
+  --hn-teal-tint:   #E3F0F1;
+  --hn-teal-light:  #7CC4CB;
+  --hn-focus:       #1F6F78;
+  --hn-amber:       #7A4A0A;
+  --hn-amber-tint:  #FAEEDA;
+  --hn-red:         #A32D2D;
+  --hn-red-tint:    #FCEBEB;
+  --hn-success:     #1F6F78;
+  --hn-success-tint:#E3F0F1;
+}

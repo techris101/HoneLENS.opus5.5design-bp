@@ -1,0 +1,49 @@
+name: Build & Package HoneLENS Extension
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Validate, Test & Package Extension
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Validate manifest.json & package.json syntax
+        run: |
+          node -e "
+            const fs = require('fs');
+            const manifest = JSON.parse(fs.readFileSync('manifest.json', 'utf8'));
+            if (manifest.manifest_version !== 3) throw new Error('Expected manifest_version 3');
+            console.log('Manifest V3 validation passed:', manifest.name, 'v' + manifest.version);
+            const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+            console.log('Package.json validation passed:', pkg.name, 'v' + pkg.version);
+          "
+
+      - name: Run Automated Test Suite
+        run: |
+          node tests/run-tests.js
+
+      - name: Package Chrome Extension
+        run: |
+          node scripts/package-extension.js
+
+      - name: Upload Extension Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: honelens-extension-v1.0.0
+          path: dist/HoneLENS-v1.0.0.zip
+          retention-days: 30
+          if-no-files-found: error

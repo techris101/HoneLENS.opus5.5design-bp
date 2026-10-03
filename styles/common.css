@@ -1,0 +1,319 @@
+/* HoneNurse & HoneLENS Common Component Styles */
+@import url('tokens.css');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--hn-paper);
+  color: var(--hn-navy);
+  font-family: var(--hn-serif);
+  font-size: var(--hn-text-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Headings & Sans Typography (Act, Navigate, Scan) */
+h1, h2, h3, h4, h5, h6,
+.hn-sans,
+nav,
+button,
+input,
+select,
+textarea,
+th,
+.hn-btn,
+.hn-badge,
+.hn-label {
+  font-family: var(--hn-sans);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: var(--hn-text-title); line-height: 1.25; margin: 0 0 var(--hn-s3); color: var(--hn-navy); }
+h2 { font-size: var(--hn-text-section); line-height: 1.3; margin: 0 0 var(--hn-s2); color: var(--hn-navy); }
+h3 { font-size: 16px; line-height: 1.35; margin: 0 0 var(--hn-s2); color: var(--hn-navy); }
+
+p {
+  margin: 0 0 var(--hn-s3);
+  max-width: var(--hn-measure);
+}
+
+.hn-meta, .hn-secondary {
+  color: var(--hn-slate);
+  font-size: var(--hn-text-small);
+}
+
+/* Monospace numerals & checked clinical values */
+.hn-mono, .hn-calc-num {
+  font-family: var(--hn-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Buttons */
+.hn-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--hn-s2);
+  padding: 8px 16px;
+  border-radius: var(--hn-radius);
+  border: 1px solid var(--hn-field);
+  background-color: var(--hn-white);
+  color: var(--hn-navy);
+  font-size: var(--hn-text-small);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-decoration: none;
+  line-height: 1.2;
+}
+
+.hn-btn:hover {
+  background-color: var(--hn-panel);
+  border-color: var(--hn-navy);
+}
+
+.hn-btn:focus-visible {
+  outline: 2px solid var(--hn-focus);
+  outline-offset: 2px;
+}
+
+.hn-btn-primary {
+  background-color: var(--hn-teal);
+  color: #FFFFFF;
+  border-color: var(--hn-teal);
+}
+
+.hn-btn-primary:hover {
+  background-color: #16565D;
+  border-color: #16565D;
+  color: #FFFFFF;
+}
+
+.hn-btn-secondary {
+  background-color: var(--hn-panel);
+  border-color: var(--hn-hair);
+}
+
+.hn-btn-sm {
+  padding: 4px 10px;
+  font-size: var(--hn-text-xs);
+}
+
+.hn-btn-accent {
+  background-color: var(--hn-edge);
+  color: #143B3B;
+  border-color: #B4D54B;
+  font-weight: 700;
+}
+
+.hn-btn-accent:hover {
+  background-color: #BBDD52;
+}
+
+.hn-btn-danger {
+  background-color: var(--hn-red);
+  color: #FFFFFF;
+  border-color: var(--hn-red);
+}
+
+/* Inputs & Form Controls */
+.hn-form-group {
+  margin-bottom: var(--hn-s4);
+}
+
+.hn-label {
+  display: block;
+  font-size: var(--hn-text-small);
+  color: var(--hn-navy);
+  margin-bottom: var(--hn-s1);
+}
+
+.hn-input, .hn-select, .hn-textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: var(--hn-radius);
+  border: 1px solid var(--hn-field);
+  background-color: var(--hn-white);
+  color: var(--hn-navy);
+  font-size: var(--hn-text-small);
+  transition: border-color 0.15s;
+}
+
+.hn-input:focus, .hn-select:focus, .hn-textarea:focus {
+  outline: none;
+  border-color: var(--hn-focus);
+  box-shadow: 0 0 0 1px var(--hn-focus);
+}
+
+.hn-textarea {
+  min-height: 80px;
+  resize: vertical;
+  font-family: var(--hn-serif);
+}
+
+/* Cards & Containers */
+.hn-card {
+  background-color: var(--hn-white);
+  border: 1px solid var(--hn-hair);
+  border-radius: var(--hn-radius-lg);
+  padding: var(--hn-s4);
+  margin-bottom: var(--hn-s4);
+  box-shadow: var(--hn-shadow-sm);
+}
+
+.hn-panel-quiet {
+  background-color: var(--hn-panel);
+  border: 1px solid var(--hn-hair);
+  border-radius: var(--hn-radius);
+  padding: var(--hn-s3);
+}
+
+/* Callouts - Clinical & Restrained */
+.hn-callout {
+  border-left: var(--hn-callout-bar) solid var(--hn-teal);
+  background-color: var(--hn-teal-tint);
+  padding: var(--hn-s3) var(--hn-s4);
+  border-radius: 0 var(--hn-radius) var(--hn-radius) 0;
+  margin: var(--hn-s3) 0;
+  font-size: var(--hn-text-small);
+}
+
+.hn-callout-amber {
+  border-left-color: var(--hn-amber);
+  background-color: var(--hn-amber-tint);
+  color: #4B2E05;
+}
+
+.hn-callout-danger {
+  border-left-color: var(--hn-red);
+  background-color: var(--hn-red-tint);
+  color: #641919;
+}
+
+/* Status Badges */
+.hn-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: var(--hn-radius);
+  font-size: var(--hn-text-xs);
+  font-weight: 600;
+  line-height: 1.4;
+  text-transform: none;
+}
+
+.hn-badge-match {
+  background-color: var(--hn-teal-tint);
+  color: var(--hn-teal);
+  border: 1px solid #B0D7DC;
+}
+
+.hn-badge-unmatch {
+  background-color: var(--hn-amber-tint);
+  color: var(--hn-amber);
+  border: 1px solid #EED4A8;
+}
+
+.hn-badge-unknown {
+  background-color: var(--hn-panel);
+  color: var(--hn-slate);
+  border: 1px solid var(--hn-hair);
+}
+
+.hn-badge-danger {
+  background-color: var(--hn-red-tint);
+  color: var(--hn-red);
+  border: 1px solid #F0BFBF;
+}
+
+/* Tables */
+.hn-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--hn-text-small);
+  margin-bottom: var(--hn-s4);
+}
+
+.hn-table th {
+  text-align: left;
+  background-color: var(--hn-panel);
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--hn-hair);
+  color: var(--hn-navy);
+}
+
+.hn-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--hn-hair);
+  vertical-align: top;
+}
+
+.hn-table tr:hover td {
+  background-color: rgba(31, 111, 120, 0.03);
+}
+
+/* Tabs */
+.hn-tab-bar {
+  display: flex;
+  gap: 2px;
+  border-bottom: 1px solid var(--hn-hair);
+  margin-bottom: var(--hn-s4);
+}
+
+.hn-tab-btn {
+  padding: 8px 16px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--hn-slate);
+  font-size: var(--hn-text-small);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.hn-tab-btn:hover {
+  color: var(--hn-navy);
+}
+
+.hn-tab-btn.active {
+  color: var(--hn-teal);
+  border-bottom-color: var(--hn-teal);
+}
+
+/* Grid & Layout Utilities */
+.hn-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--hn-s4);
+}
+
+@media (max-width: 768px) {
+  .hn-grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.hn-flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hn-flex-gap {
+  display: flex;
+  align-items: center;
+  gap: var(--hn-s2);
+}
+
+/* Divider */
+.hn-hr {
+  border: none;
+  border-top: 1px solid var(--hn-hair);
+  margin: var(--hn-s4) 0;
+}

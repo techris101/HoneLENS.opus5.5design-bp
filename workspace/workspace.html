@@ -1,0 +1,816 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HoneLENS Workspace — Clinical Evidence &amp; Nursing Research Tools</title>
+  <link rel="stylesheet" href="../styles/tokens.css">
+  <link rel="stylesheet" href="../styles/common.css">
+  <link rel="stylesheet" href="workspace.css">
+</head>
+<body>
+  <div class="workspace-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="workspace-sidebar">
+      <div class="sidebar-brand">
+        <svg viewBox="0 0 130 175" width="28" height="38" role="img" aria-label="HoneLENS logo">
+          <rect x="15.75" y="77.88" width="98.00" height="19.25" fill="var(--hn-teal)"/>
+          <polygon points="0.00,175.00 0.00,31.50 31.50,0.00 31.50,175.00" fill="var(--hn-navy)"/>
+          <polygon points="98.00,0.00 129.50,0.00 129.50,143.50 98.00,175.00" fill="var(--hn-navy)"/>
+        </svg>
+        <div>
+          <span class="brand-title">Hone<span style="color: var(--hn-teal);">LENS</span></span>
+          <span class="brand-tagline">Clinical Judgment &amp; EBP</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">EBP &amp; Research</div>
+        <button class="nav-item active" data-view="view-source-check">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Source Check
+        </button>
+        <button class="nav-item" data-view="view-ebp-builder">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          EBP Assignment Builder
+        </button>
+        <button class="nav-item" data-view="view-source-audit">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          Source Audit &amp; DOCX
+        </button>
+        <button class="nav-item" data-view="view-citation-maker">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          APA 7 Citation Maker
+        </button>
+
+        <div class="nav-section-title">Clinical Math &amp; Stats</div>
+        <button class="nav-item" data-view="view-dosage-trainer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>
+          Dosage Trainer
+        </button>
+        <button class="nav-item" data-view="view-dosage-simulator">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Dosage Exam Simulator
+        </button>
+        <button class="nav-item" data-view="view-stats-calc">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          Stats Calculator
+        </button>
+
+        <div class="nav-section-title">Study &amp; Library</div>
+        <button class="nav-item" data-view="view-library">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          Research Library
+        </button>
+        <button class="nav-item" data-view="view-flashcards">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          Leitner Flashcards
+        </button>
+        <button class="nav-item" data-view="view-activity-log">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          Research Trail
+        </button>
+
+        <div class="nav-section-title">System &amp; Settings</div>
+        <button class="nav-item" data-view="view-privacy-hub">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Privacy &amp; Disclosures
+        </button>
+        <button class="nav-item" data-view="view-settings">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          Backup &amp; Settings
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <span id="ws-plan-badge" class="hn-badge hn-badge-match">HoneLENS Plus Unlocked</span>
+        <div class="hn-secondary hn-text-xs" style="margin-top: 4px;">Local-first &bull; AI-Free</div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="workspace-main">
+      <!-- Top Workspace Bar -->
+      <header class="workspace-topbar hn-flex-between">
+        <div id="workspace-view-header">
+          <h1 id="view-title" style="margin: 0;">Source Check</h1>
+          <p id="view-subtitle" class="hn-secondary hn-text-small" style="margin: 0;">Evaluate research sources against assignment criteria and retraction records.</p>
+        </div>
+        <div class="topbar-actions hn-flex-gap">
+          <button id="topbar-btn-backup" class="hn-btn hn-btn-sm hn-btn-secondary">Export HonePack</button>
+          <button id="topbar-theme-toggle" class="hn-btn hn-btn-sm hn-btn-secondary" title="Toggle Theme">Toggle Mode</button>
+        </div>
+      </header>
+
+      <div class="workspace-content-scroll">
+        <!-- VIEW 1: SOURCE CHECK -->
+        <section id="view-source-check" class="workspace-view active">
+          <div class="hn-grid-2">
+            <div class="hn-card">
+              <h2>Lookup &amp; Inspect Source</h2>
+              <div class="hn-form-group">
+                <label class="hn-label" for="sc-identifier-input">Digital Object Identifier (DOI) or PubMed PMID</label>
+                <div class="hn-flex-gap">
+                  <input type="text" id="sc-identifier-input" class="hn-input" placeholder="e.g. 10.1111/jan.14812 or 34101234">
+                  <button id="sc-btn-lookup" class="hn-btn hn-btn-primary">Resolve</button>
+                </div>
+              </div>
+
+              <div class="hn-form-group">
+                <label class="hn-label" for="sc-date-window">Publication Date Cutoff</label>
+                <select id="sc-date-window" class="hn-select">
+                  <option value="5">Within last 5 years (standard nursing assignment)</option>
+                  <option value="3">Within last 3 years (strict current evidence)</option>
+                  <option value="10">Within last 10 years (broader literature review)</option>
+                  <option value="0">Any year (historical or landmark study)</option>
+                </select>
+              </div>
+
+              <div class="hn-form-group">
+                <label class="hn-label" for="sc-framework-select">Optional Evidence Framework Hierarchy</label>
+                <select id="sc-framework-select" class="hn-select">
+                  <option value="Melnyk & Fineout-Overholt (Levels I–VII)">Melnyk &amp; Fineout-Overholt (Levels I–VII)</option>
+                  <option value="Johns Hopkins Nursing EBP (Levels I–V)">Johns Hopkins Nursing EBP (Levels I–V)</option>
+                  <option value="None (Design metadata only)">None (Design metadata only)</option>
+                </select>
+              </div>
+
+              <div class="hn-form-group">
+                <label class="hn-label" for="sc-question-type">Clinical Question Type</label>
+                <select id="sc-question-type" class="hn-select">
+                  <option value="Intervention / Therapy">Intervention / Therapy</option>
+                  <option value="Prognosis / Prediction">Prognosis / Prediction</option>
+                  <option value="Diagnosis / Diagnostic Test">Diagnosis / Diagnostic Test</option>
+                  <option value="Etiology / Harm">Etiology / Harm</option>
+                  <option value="Meaning / Patient Experience">Meaning / Patient Experience</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="hn-card">
+              <h2>Evaluation Results</h2>
+              <div id="sc-empty-state" class="hn-panel-quiet" style="text-align: center; padding: 24px;">
+                Enter a DOI or PMID on the left to evaluate bibliographic metadata against assignment rules.
+              </div>
+
+              <div id="sc-results-card" style="display: none;">
+                <div class="hn-flex-between">
+                  <span id="sc-badge-status" class="hn-badge"></span>
+                  <span id="sc-badge-time" class="hn-secondary hn-text-xs"></span>
+                </div>
+                <h3 id="sc-res-title" style="margin: 8px 0 4px;"></h3>
+                <div id="sc-res-meta" class="hn-secondary hn-text-small" style="margin-bottom: 12px;"></div>
+
+                <div id="sc-criteria-table-container"></div>
+
+                <div id="sc-retraction-alert" class="hn-callout hn-callout-danger" style="display: none;"></div>
+                <div id="sc-framework-alert" class="hn-callout hn-callout-amber" style="display: none;"></div>
+
+                <div class="hn-flex-gap" style="margin-top: 16px;">
+                  <button id="sc-btn-save-lib" class="hn-btn hn-btn-primary">Save to Library</button>
+                  <button id="sc-btn-copy-apa" class="hn-btn hn-btn-secondary">Copy APA 7</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 2: EBP ASSIGNMENT BUILDER -->
+        <section id="view-ebp-builder" class="workspace-view">
+          <div class="hn-flex-between" style="margin-bottom: 16px;">
+            <div class="hn-flex-gap">
+              <label class="hn-label" for="ebp-select-assignment" style="margin: 0;">Active Assignment:</label>
+              <select id="ebp-select-assignment" class="hn-select" style="width: 260px;"></select>
+              <button id="ebp-btn-new-assignment" class="hn-btn hn-btn-sm hn-btn-secondary">+ New Assignment</button>
+            </div>
+            <div class="hn-flex-gap">
+              <button id="ebp-btn-export-csv" class="hn-btn hn-btn-secondary">Export Matrix CSV</button>
+              <button id="ebp-btn-export-docx" class="hn-btn hn-btn-accent">Export Word Submission Pack (.docx)</button>
+            </div>
+          </div>
+
+          <!-- PICOT Question Form -->
+          <div class="hn-card">
+            <h2>Clinical PICOT Framework</h2>
+            <div class="hn-grid-2">
+              <div class="hn-form-group">
+                <label class="hn-label" for="picot-p">P — Patient / Population / Problem</label>
+                <textarea id="picot-p" class="hn-textarea" placeholder="e.g. Adult hospitalized patients with indwelling urinary catheters"></textarea>
+              </div>
+              <div class="hn-form-group">
+                <label class="hn-label" for="picot-i">I — Intervention</label>
+                <textarea id="picot-i" class="hn-textarea" placeholder="e.g. Nurse-led daily catheter necessity checklist and protocol"></textarea>
+              </div>
+              <div class="hn-form-group">
+                <label class="hn-label" for="picot-c">C — Comparison / Usual Care</label>
+                <textarea id="picot-c" class="hn-textarea" placeholder="e.g. Standard routine physician-directed removal orders"></textarea>
+              </div>
+              <div class="hn-form-group">
+                <label class="hn-label" for="picot-o">O — Clinical Outcome</label>
+                <textarea id="picot-o" class="hn-textarea" placeholder="e.g. Rate of catheter-associated urinary tract infections (CAUTI) and duration of catheterization"></textarea>
+              </div>
+            </div>
+            <div class="hn-form-group" style="margin-bottom: 0;">
+              <label class="hn-label" for="picot-t">T — Timeframe / Type of Question</label>
+              <input type="text" id="picot-t" class="hn-input" placeholder="e.g. Within 30 days of admission; Intervention question">
+            </div>
+            <button id="ebp-btn-save-picot" class="hn-btn hn-btn-primary" style="margin-top: 12px;">Save PICOT</button>
+          </div>
+
+          <!-- PubMed Query Builder -->
+          <div class="hn-card">
+            <h2>PubMed Boolean Query Builder</h2>
+            <p class="hn-secondary hn-text-small">Generates syntax combining student terms, field tags, and date limits. Disclosed as starting search, not exhaustive.</p>
+            <div class="hn-flex-gap" style="margin-bottom: 8px;">
+              <button id="ebp-btn-generate-query" class="hn-btn hn-btn-sm hn-btn-secondary">Synthesize PubMed Syntax</button>
+              <a href="#" id="ebp-link-pubmed" target="_blank" class="hn-btn hn-btn-sm hn-btn-primary" style="display: none;">Launch Query on PubMed &rarr;</a>
+            </div>
+            <textarea id="ebp-pubmed-query-box" class="hn-textarea hn-mono" style="font-size: 13px;" placeholder="Click 'Synthesize PubMed Syntax' above to generate Boolean query..."></textarea>
+          </div>
+
+          <!-- Multi-Study Evidence Synthesis Matrix -->
+          <div class="hn-card">
+            <div class="hn-flex-between">
+              <h2>Evidence Synthesis Matrix</h2>
+              <button id="ebp-btn-add-matrix-row" class="hn-btn hn-btn-sm hn-btn-primary">+ Add Study Row</button>
+            </div>
+            <div style="overflow-x: auto; margin-top: 12px;">
+              <table id="ebp-matrix-table" class="hn-table">
+                <thead>
+                  <tr>
+                    <th>Study / Authors / Year</th>
+                    <th>Design &amp; Level</th>
+                    <th>Sample &amp; Setting</th>
+                    <th>Key Findings &amp; Effect Size</th>
+                    <th>Student Appraisal &amp; Relevance</th>
+                    <th style="width: 70px;">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="ebp-matrix-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 3: SOURCE AUDIT & DOCX CHECKER -->
+        <section id="view-source-audit" class="workspace-view">
+          <div class="hn-card">
+            <h2>DOCX Manuscript &amp; Citation Auditor</h2>
+            <p class="hn-secondary hn-text-small">Checks student-selected .docx file locally on-device. Zero upload. Verifies in-text citations against References list, audits APA 7 format, dates, and ISMP "Do Not Use" abbreviations.</p>
+            
+            <div class="docx-drop-area" id="docx-drop-zone">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--hn-teal)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+              <div style="margin: 8px 0 4px; font-weight: 600;">Drag &amp; drop your nursing manuscript (.docx) here</div>
+              <span class="hn-secondary hn-text-xs">or click to browse from local computer</span>
+              <input type="file" id="docx-file-input" accept=".docx" style="display: none;">
+            </div>
+
+            <div id="audit-loading-spinner" class="hn-callout" style="display: none;">
+              Analyzing manuscript paragraphs locally in browser memory...
+            </div>
+          </div>
+
+          <!-- Audit Results Summary -->
+          <div id="audit-results-container" style="display: none;">
+            <div class="hn-card">
+              <div class="hn-flex-between">
+                <h2>Audit Report: <span id="audit-report-filename"></span></h2>
+                <span id="audit-total-issues-badge" class="hn-badge"></span>
+              </div>
+              <div class="audit-stat-cards-grid">
+                <div class="audit-stat-box">
+                  <div class="audit-stat-num" id="stat-citations-count">0</div>
+                  <div class="hn-secondary hn-text-xs">In-Text Citations</div>
+                </div>
+                <div class="audit-stat-box">
+                  <div class="audit-stat-num" id="stat-references-count">0</div>
+                  <div class="hn-secondary hn-text-xs">Reference Entries</div>
+                </div>
+                <div class="audit-stat-box">
+                  <div class="audit-stat-num" id="stat-unmatched-intext" style="color: var(--hn-amber);">0</div>
+                  <div class="hn-secondary hn-text-xs">Unmatched In-Text</div>
+                </div>
+                <div class="audit-stat-box">
+                  <div class="audit-stat-num" id="stat-unreferenced-bib" style="color: var(--hn-amber);">0</div>
+                  <div class="hn-secondary hn-text-xs">Uncited Bibliography</div>
+                </div>
+                <div class="audit-stat-box">
+                  <div class="audit-stat-num" id="stat-abbrev-count" style="color: var(--hn-red);">0</div>
+                  <div class="hn-secondary hn-text-xs">Prohibited Abbrev.</div>
+                </div>
+              </div>
+
+              <!-- Unmatched In-Text Citations -->
+              <h3 style="margin-top: 20px;">Unmatched In-Text Citations (Cited in text, missing in References)</h3>
+              <div id="audit-unmatched-intext-list"></div>
+
+              <!-- Unreferenced Bibliography Entries -->
+              <h3 style="margin-top: 20px;">Uncited References (In bibliography, but never cited in paper)</h3>
+              <div id="audit-unreferenced-bib-list"></div>
+
+              <!-- Prohibited ISMP Abbreviations -->
+              <h3 style="margin-top: 20px;">Prohibited "Do Not Use" Abbreviations (Joint Commission &amp; ISMP)</h3>
+              <div id="audit-abbreviations-list"></div>
+
+              <!-- Date Window & APA 7 Issues -->
+              <h3 style="margin-top: 20px;">Publication Date Window &amp; APA 7 Formatting Flags</h3>
+              <div id="audit-date-apa-list"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 4: DOSAGE TRAINER -->
+        <section id="view-dosage-trainer" class="workspace-view">
+          <div class="hn-grid-2">
+            <div class="hn-card">
+              <h2>Problem Setup</h2>
+              <div class="hn-form-group">
+                <label class="hn-label" for="dt-select-type">Problem Category</label>
+                <select id="dt-select-type" class="hn-select">
+                  <option value="unit_conversion">Unit Conversion</option>
+                  <option value="tablet_liquid" selected>Tablet &amp; Liquid Doses</option>
+                  <option value="iv_infusion">IV Rates &amp; Infusion Times</option>
+                  <option value="weight_based">Weight-Based Dosing (mg/kg)</option>
+                  <option value="pediatric">Pediatric Safe-Range Practice</option>
+                  <option value="reconstitution">Reconstitution Practice</option>
+                </select>
+              </div>
+
+              <button id="dt-btn-generate" class="hn-btn hn-btn-secondary" style="width: 100%; margin-bottom: 16px;">Generate Practice Item</button>
+
+              <div class="dosage-item-box">
+                <div id="dt-prompt-display" class="dosage-prompt-text" style="font-size: 15px;"></div>
+                <div id="dt-rounding-rule-display" class="hn-secondary hn-text-xs" style="margin-top: 8px;"></div>
+              </div>
+
+              <div class="hn-form-group" style="margin-top: 16px;">
+                <label class="hn-label" for="dt-answer-input">Your Calculated Answer (<span id="dt-target-unit-label">units</span>):</label>
+                <div class="hn-flex-gap">
+                  <input type="number" step="any" id="dt-answer-input" class="hn-input hn-calc-num" placeholder="Enter numeric answer">
+                  <button id="dt-btn-submit" class="hn-btn hn-btn-primary">Verify Answer</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="hn-card">
+              <h2>Worked Solution &amp; Rationales</h2>
+              <div id="dt-feedback-empty" class="hn-panel-quiet" style="text-align: center; padding: 24px;">
+                Submit an answer to view the formula method, dimensional analysis, and error classification.
+              </div>
+
+              <div id="dt-feedback-panel" style="display: none;">
+                <div class="hn-flex-between">
+                  <span id="dt-badge-result" class="hn-badge"></span>
+                  <span id="dt-correct-val" class="hn-calc-num" style="font-weight: 700; font-size: 16px;"></span>
+                </div>
+
+                <div id="dt-mistake-callout" class="hn-callout hn-callout-amber" style="display: none; margin-top: 12px;"></div>
+
+                <h3 style="margin-top: 16px; margin-bottom: 6px;">Step-by-Step Educational Review:</h3>
+                <div id="dt-step-formula" class="worked-steps-box" style="margin-bottom: 8px;"></div>
+                <div id="dt-step-dimensional" class="worked-steps-box" style="margin-bottom: 8px;"></div>
+                <div id="dt-step-note" class="hn-callout" style="margin-bottom: 8px;"></div>
+
+                <div class="hn-callout hn-callout-amber" style="margin-top: 16px;">
+                  <b>Educational Notice:</b> HoneLENS Dosage Trainer is for nursing mathematics practice only. Clinical medication orders require institutional verification.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 5: DOSAGE EXAM SIMULATOR -->
+        <section id="view-dosage-simulator" class="workspace-view">
+          <div id="exam-config-panel" class="hn-card">
+            <h2>Dosage Exam Simulator Setup</h2>
+            <p class="hn-secondary hn-text-small">Timed test preparation workflow replicating nursing program calculation benchmark exams.</p>
+
+            <div class="hn-grid-2">
+              <div class="hn-form-group">
+                <label class="hn-label" for="exam-question-count">Question Count</label>
+                <select id="exam-question-count" class="hn-select">
+                  <option value="10">10 Questions (Quick Benchmark)</option>
+                  <option value="20" selected>20 Questions (Standard Nursing School Exam)</option>
+                  <option value="25">25 Questions (Comprehensive Mock Exam)</option>
+                  <option value="50">50 Questions (NCLEX Marathon)</option>
+                </select>
+              </div>
+
+              <div class="hn-form-group">
+                <label class="hn-label" for="exam-pass-target">Passing Threshold Target</label>
+                <select id="exam-pass-target" class="hn-select">
+                  <option value="90">90% Passing Target</option>
+                  <option value="95">95% Passing Target</option>
+                  <option value="100" selected>100% Mastery Benchmark (Zero-Error Policy)</option>
+                </select>
+              </div>
+            </div>
+
+            <button id="exam-btn-start" class="hn-btn hn-btn-primary" style="padding: 10px 24px;">Start Timed Exam</button>
+          </div>
+
+          <!-- Active Exam Interface -->
+          <div id="exam-active-panel" class="hn-card" style="display: none;">
+            <div class="hn-flex-between exam-header-bar">
+              <div>
+                <span class="hn-label" style="margin: 0;">Question <span id="exam-q-current">1</span> of <span id="exam-q-total">20</span></span>
+                <span id="exam-q-category" class="hn-secondary hn-text-xs"></span>
+              </div>
+              <div class="hn-flex-gap">
+                <div class="exam-timer-box">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <span id="exam-timer-display" class="hn-calc-num">40:00</span>
+                </div>
+                <button id="exam-btn-flag" class="hn-btn hn-btn-sm hn-btn-secondary">Flag Question</button>
+              </div>
+            </div>
+
+            <div class="exam-question-prompt-box">
+              <p id="exam-active-prompt" class="dosage-prompt-text" style="font-size: 16px; margin: 0;"></p>
+              <div id="exam-active-rounding" class="hn-secondary hn-text-xs" style="margin-top: 8px;"></div>
+            </div>
+
+            <div class="hn-form-group" style="margin-top: 16px;">
+              <label class="hn-label" for="exam-active-input">Your Answer (<span id="exam-active-unit">units</span>):</label>
+              <input type="number" step="any" id="exam-active-input" class="hn-input hn-calc-num" style="max-width: 250px;" placeholder="Numeric value">
+            </div>
+
+            <div class="hn-flex-between" style="margin-top: 24px;">
+              <div class="hn-flex-gap">
+                <button id="exam-btn-prev" class="hn-btn hn-btn-secondary">&larr; Previous</button>
+                <button id="exam-btn-next" class="hn-btn hn-btn-secondary">Next &rarr;</button>
+              </div>
+              <button id="exam-btn-submit-exam" class="hn-btn hn-btn-accent">Submit Final Exam</button>
+            </div>
+          </div>
+
+          <!-- Exam Scorecard & Review -->
+          <div id="exam-results-panel" class="hn-card" style="display: none;">
+            <div class="hn-flex-between">
+              <h2>Exam Scorecard</h2>
+              <span id="exam-score-badge" class="hn-badge"></span>
+            </div>
+
+            <div class="exam-score-grid">
+              <div class="audit-stat-box">
+                <div class="audit-stat-num" id="exam-score-pct">0%</div>
+                <div class="hn-secondary hn-text-xs">Final Score</div>
+              </div>
+              <div class="audit-stat-box">
+                <div class="audit-stat-num" id="exam-score-raw">0 / 0</div>
+                <div class="hn-secondary hn-text-xs">Correct Answers</div>
+              </div>
+              <div class="audit-stat-box">
+                <div class="audit-stat-num" id="exam-target-pct">0%</div>
+                <div class="hn-secondary hn-text-xs">Target Pass Mark</div>
+              </div>
+              <div class="audit-stat-box">
+                <div class="audit-stat-num" id="exam-weak-area" style="font-size: 16px;">None</div>
+                <div class="hn-secondary hn-text-xs">Primary Focus Area</div>
+              </div>
+            </div>
+
+            <h3 style="margin-top: 24px;">Detailed Worked Question Review</h3>
+            <div id="exam-review-questions-list"></div>
+
+            <button id="exam-btn-retake" class="hn-btn hn-btn-primary" style="margin-top: 16px;">Configure Another Exam</button>
+          </div>
+        </section>
+
+        <!-- VIEW 6: STATS CALCULATOR -->
+        <section id="view-stats-calc" class="workspace-view">
+          <div class="hn-grid-2">
+            <div class="hn-card">
+              <h2>2×2 Clinical Trial Contingency Table</h2>
+              <p class="hn-secondary hn-text-small">Enter event counts or cohort figures. Explicit epidemiological formulas.</p>
+
+              <div class="table-2x2-full">
+                <div class="table-2x2-row">
+                  <div class="table-cell-header">Intervention / Experimental Group</div>
+                  <div class="table-cell-input">
+                    <label class="hn-label">Events (a)</label>
+                    <input type="number" id="ws-stats-a" class="hn-input hn-calc-num" placeholder="e.g. 12">
+                  </div>
+                  <div class="table-cell-input">
+                    <label class="hn-label">Non-Events (b)</label>
+                    <input type="number" id="ws-stats-b" class="hn-input hn-calc-num" placeholder="e.g. 88">
+                  </div>
+                </div>
+
+                <div class="table-2x2-row">
+                  <div class="table-cell-header">Control / Standard Care Group</div>
+                  <div class="table-cell-input">
+                    <label class="hn-label">Events (c)</label>
+                    <input type="number" id="ws-stats-c" class="hn-input hn-calc-num" placeholder="e.g. 28">
+                  </div>
+                  <div class="table-cell-input">
+                    <label class="hn-label">Non-Events (d)</label>
+                    <input type="number" id="ws-stats-d" class="hn-input hn-calc-num" placeholder="e.g. 72">
+                  </div>
+                </div>
+              </div>
+
+              <div class="hn-grid-2" style="margin-top: 12px;">
+                <div class="hn-form-group">
+                  <label class="hn-label" for="ws-stats-outcome-type">Outcome Nature</label>
+                  <select id="ws-stats-outcome-type" class="hn-select">
+                    <option value="adverse">Adverse Harm (e.g. death, infection, fall)</option>
+                    <option value="beneficial">Beneficial (e.g. cure, recovery, survival)</option>
+                  </select>
+                </div>
+                <div class="hn-form-group">
+                  <label class="hn-label" for="ws-stats-outcome-name">Outcome Name</label>
+                  <input type="text" id="ws-stats-outcome-name" class="hn-input" placeholder="e.g. hospital readmission">
+                </div>
+              </div>
+
+              <button id="ws-btn-calc-stats" class="hn-btn hn-btn-primary" style="width: 100%;">Calculate Effect Measures</button>
+            </div>
+
+            <div class="hn-card">
+              <h2>Calculated Effect Sizes &amp; 95% CIs</h2>
+              <div id="ws-stats-results-panel" style="display: none;">
+                <div class="stats-metric-row">
+                  <div><b>Experimental Event Rate (EER):</b> <span id="res-eer" class="hn-calc-num"></span></div>
+                  <div><b>Control Event Rate (CER):</b> <span id="res-cer" class="hn-calc-num"></span></div>
+                </div>
+                <hr class="hn-hr">
+                <div class="stats-metric-row">
+                  <div><b>Risk Ratio (RR):</b> <span id="res-rr" class="hn-calc-num"></span> <span id="res-rr-ci" class="hn-secondary hn-text-xs"></span></div>
+                  <div><b>Odds Ratio (OR):</b> <span id="res-or" class="hn-calc-num"></span> <span id="res-or-ci" class="hn-secondary hn-text-xs"></span></div>
+                </div>
+                <hr class="hn-hr">
+                <div class="stats-metric-row">
+                  <div><b>Absolute Risk Reduction (ARR):</b> <span id="res-arr" class="hn-calc-num"></span></div>
+                  <div><b>Relative Risk Reduction (RRR):</b> <span id="res-rrr" class="hn-calc-num"></span></div>
+                </div>
+                <hr class="hn-hr">
+                <div class="stats-metric-row">
+                  <div><b>Number Needed to Treat (NNT):</b> <span id="res-nnt" class="hn-calc-num" style="font-weight: 700; color: var(--hn-teal);"></span></div>
+                  <div><b>Number Needed to Harm (NNH):</b> <span id="res-nnh" class="hn-calc-num" style="font-weight: 700; color: var(--hn-amber);"></span></div>
+                </div>
+
+                <div id="res-stat-interpretation" class="hn-callout hn-callout-explanation" style="margin-top: 16px;"></div>
+              </div>
+
+              <!-- 95% CI Interpreter -->
+              <h3 style="margin-top: 24px;">Reported Estimate &amp; 95% CI Interpreter</h3>
+              <p class="hn-secondary hn-text-xs">Enter a published RR, OR, or HR with confidence intervals to determine null crossing.</p>
+              <div class="hn-flex-gap">
+                <select id="ci-type-select" class="hn-select" style="width: 90px;">
+                  <option value="RR">RR</option>
+                  <option value="OR">OR</option>
+                  <option value="HR">HR</option>
+                </select>
+                <input type="number" step="any" id="ci-est-input" class="hn-input hn-calc-num" placeholder="Estimate (e.g. 0.75)">
+                <input type="number" step="any" id="ci-low-input" class="hn-input hn-calc-num" placeholder="Lower 95%">
+                <input type="number" step="any" id="ci-up-input" class="hn-input hn-calc-num" placeholder="Upper 95%">
+                <button id="btn-ci-eval" class="hn-btn hn-btn-secondary">Interpret</button>
+              </div>
+              <div id="ci-interpretation-box" class="hn-callout" style="display: none; margin-top: 12px;"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 7: RESEARCH LIBRARY -->
+        <section id="view-library" class="workspace-view">
+          <div class="hn-card">
+            <div class="hn-flex-between">
+              <h2>Local Research Library</h2>
+              <div class="hn-flex-gap">
+                <input type="text" id="lib-search-input" class="hn-input" placeholder="Literal search title, author, journal..." style="width: 300px;">
+                <select id="lib-filter-type" class="hn-select" style="width: 150px;">
+                  <option value="all">All Sources</option>
+                  <option value="journal-article">Journal Articles</option>
+                  <option value="clips">Clipped Excerpts</option>
+                  <option value="captures">Screen Captures</option>
+                </select>
+              </div>
+            </div>
+
+            <div id="lib-items-container" style="margin-top: 16px;"></div>
+          </div>
+        </section>
+
+        <!-- VIEW 8: LEITNER FLASHCARDS -->
+        <section id="view-flashcards" class="workspace-view">
+          <div class="hn-grid-2">
+            <div class="hn-card">
+              <h2>Study Session (Leitner Schedule)</h2>
+              <div class="leitner-boxes-bar" id="leitner-boxes-tracker"></div>
+
+              <div id="fc-study-box" class="fc-flashcard-stage" style="margin-top: 16px;">
+                <div id="fc-card-card" class="fc-card-inner">
+                  <div class="fc-side fc-front">
+                    <span class="hn-badge hn-badge-unknown" id="fc-card-box-label">Box 1</span>
+                    <div id="fc-front-text" style="margin: 16px 0; font-size: 16px;">No cards due for review!</div>
+                    <button id="fc-btn-flip" class="hn-btn hn-btn-secondary">Show Answer</button>
+                  </div>
+                  <div class="fc-side fc-back" id="fc-back-side" style="display: none;">
+                    <div id="fc-back-text" style="margin: 16px 0; font-size: 15px; font-weight: 500;"></div>
+                    <div id="fc-source-anchor" class="hn-secondary hn-text-xs" style="margin-bottom: 16px;"></div>
+                    <div class="hn-flex-gap">
+                      <button id="fc-btn-wrong" class="hn-btn hn-btn-danger" style="flex: 1;">Again (Reset to Box 1)</button>
+                      <button id="fc-btn-correct" class="hn-btn hn-btn-primary" style="flex: 1;">Correct (Promote Box)</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hn-flex-between" style="margin-top: 16px;">
+                <button id="fc-btn-export-anki" class="hn-btn hn-btn-sm hn-btn-secondary">Export to Anki (.txt)</button>
+              </div>
+            </div>
+
+            <div class="hn-card">
+              <h2>Create New Card</h2>
+              <div class="hn-form-group">
+                <label class="hn-label" for="fc-new-front">Front Question</label>
+                <textarea id="fc-new-front" class="hn-textarea" placeholder="Formulate clinical question..."></textarea>
+              </div>
+              <div class="hn-form-group">
+                <label class="hn-label" for="fc-new-back">Back Answer &amp; Rationale</label>
+                <textarea id="fc-new-back" class="hn-textarea" placeholder="Formulate concise answer with clinical reasoning..."></textarea>
+              </div>
+              <div class="hn-form-group">
+                <label class="hn-label" for="fc-new-source">Source Reference</label>
+                <input type="text" id="fc-new-source" class="hn-input" placeholder="e.g. Ignatavicius Medical-Surgical Nursing, 10th Ed.">
+              </div>
+              <button id="fc-btn-create-card" class="hn-btn hn-btn-primary" style="width: 100%;">Add to Box 1</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 9: APA 7 CITATION MAKER -->
+        <section id="view-citation-maker" class="workspace-view">
+          <div class="hn-card">
+            <h2>APA 7th Edition Citation Generator</h2>
+            <p class="hn-secondary hn-text-small">Format known bibliographic fields and detect omissions. Strictly deterministic. Never guesses missing author, date, or page range.</p>
+
+            <div class="hn-grid-2">
+              <div>
+                <div class="hn-form-group">
+                  <label class="hn-label" for="cite-authors">Authors (Last, First Initial - separated by comma or semicolon)</label>
+                  <input type="text" id="cite-authors" class="hn-input" placeholder="e.g. Smith, J. D.; Taylor, M. A.">
+                </div>
+                <div class="hn-form-group">
+                  <label class="hn-label" for="cite-year">Publication Year</label>
+                  <input type="number" id="cite-year" class="hn-input" placeholder="e.g. 2023">
+                </div>
+                <div class="hn-form-group">
+                  <label class="hn-label" for="cite-title">Title of Article / Chapter</label>
+                  <input type="text" id="cite-title" class="hn-input" placeholder="Title of research paper">
+                </div>
+              </div>
+
+              <div>
+                <div class="hn-form-group">
+                  <label class="hn-label" for="cite-journal">Periodical / Journal Title</label>
+                  <input type="text" id="cite-journal" class="hn-input" placeholder="e.g. Journal of Advanced Nursing">
+                </div>
+                <div class="hn-flex-gap">
+                  <div class="hn-form-group" style="flex: 1;">
+                    <label class="hn-label" for="cite-vol">Volume</label>
+                    <input type="text" id="cite-vol" class="hn-input" placeholder="e.g. 48">
+                  </div>
+                  <div class="hn-form-group" style="flex: 1;">
+                    <label class="hn-label" for="cite-issue">Issue</label>
+                    <input type="text" id="cite-issue" class="hn-input" placeholder="e.g. 3">
+                  </div>
+                  <div class="hn-form-group" style="flex: 1;">
+                    <label class="hn-label" for="cite-pages">Pages</label>
+                    <input type="text" id="cite-pages" class="hn-input" placeholder="e.g. 112-124">
+                  </div>
+                </div>
+                <div class="hn-form-group">
+                  <label class="hn-label" for="cite-doi">DOI / Permanent URL</label>
+                  <input type="text" id="cite-doi" class="hn-input" placeholder="e.g. 10.1111/jan.12345">
+                </div>
+              </div>
+            </div>
+
+            <button id="btn-format-cite" class="hn-btn hn-btn-primary" style="margin-top: 8px;">Generate APA 7 Formats</button>
+
+            <div id="cite-output-box" class="hn-card" style="display: none; margin-top: 16px;">
+              <h3>APA 7 Reference List Entry:</h3>
+              <div id="cite-formatted-html" class="cite-rendered-entry"></div>
+              <div id="cite-missing-flags" class="hn-callout hn-callout-amber" style="display: none; margin-top: 8px;"></div>
+
+              <h3 style="margin-top: 16px;">In-Text Citations:</h3>
+              <p><b>Parenthetical:</b> <span id="cite-intext-paren" class="hn-mono"></span></p>
+              <p><b>Narrative:</b> <span id="cite-intext-narr" class="hn-mono"></span></p>
+
+              <button id="btn-copy-formatted-cite" class="hn-btn hn-btn-secondary" style="margin-top: 8px;">Copy Formatted Reference</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 10: RESEARCH TRAIL / ACTIVITY LOG -->
+        <section id="view-activity-log" class="workspace-view">
+          <div class="hn-card">
+            <div class="hn-flex-between">
+              <h2>Personal Research Trail</h2>
+              <div class="hn-flex-gap">
+                <button id="log-btn-export" class="hn-btn hn-btn-sm hn-btn-secondary">Export Trail</button>
+                <button id="log-btn-clear" class="hn-btn hn-btn-sm hn-btn-danger">Clear All Logs</button>
+              </div>
+            </div>
+            <p class="hn-secondary hn-text-small">
+              Personal audit record of research activity inside HoneLENS. Stored purely on-device.
+              <i>Disclaimer: Personal research trail. Not proof of authorship or AI non-use outside HoneLENS.</i>
+            </p>
+
+            <div id="log-entries-list" style="margin-top: 16px;"></div>
+          </div>
+        </section>
+
+        <!-- VIEW 11: PRIVACY & DISCLOSURES -->
+        <section id="view-privacy-hub" class="workspace-view">
+          <div class="hn-card">
+            <h2>Local Privacy &amp; Network Transparency Hub</h2>
+            <div class="audit-stat-cards-grid" style="margin-top: 12px;">
+              <div class="audit-stat-box">
+                <div class="audit-stat-num" id="priv-storage-used">0 KB</div>
+                <div class="hn-secondary hn-text-xs">Local Data Stored</div>
+              </div>
+              <div class="audit-stat-box">
+                <div class="audit-stat-num" style="color: var(--hn-teal);">0</div>
+                <div class="hn-secondary hn-text-xs">AI Calls Transmitted</div>
+              </div>
+              <div class="audit-stat-box">
+                <div class="audit-stat-num" style="color: var(--hn-teal);">100%</div>
+                <div class="hn-secondary hn-text-xs">On-Device Processing</div>
+              </div>
+            </div>
+
+            <h3 style="margin-top: 24px;">Core Non-AI Guarantees:</h3>
+            <ul class="hn-secondary" style="line-height: 1.8;">
+              <li><b>Zero Generative AI:</b> No LLM calls, hosted AI models, on-device neural networks, or vector embeddings.</li>
+              <li><b>Zero Manuscript Upload:</b> Your .docx files and nursing papers are parsed strictly in memory. They never leave your device.</li>
+              <li><b>Deterministic Math:</b> Dosage problems use verified medical formulas and validated numerical ranges.</li>
+              <li><b>Metadata-Only Requests:</b> Optional lookups query public Crossref and PubMed APIs with only the raw DOI/PMID you provide.</li>
+            </ul>
+
+            <h3 style="margin-top: 24px;">Disclosed External Services:</h3>
+            <div class="hn-panel-quiet" style="margin-bottom: 8px;">
+              <b>Crossref Public REST API</b> (https://api.crossref.org/works/{doi})<br>
+              <span class="hn-secondary hn-text-xs">Payload sent: Raw DOI string. Purpose: Bibliographic metadata and retraction records.</span>
+            </div>
+            <div class="hn-panel-quiet">
+              <b>NCBI PubMed E-Utilities</b> (https://eutils.ncbi.nlm.nih.gov/entrez/eutils/)<br>
+              <span class="hn-secondary hn-text-xs">Payload sent: Raw PMID string. Purpose: Bibliographic metadata and publication type.</span>
+            </div>
+
+            <button id="priv-btn-clear-cache" class="hn-btn hn-btn-secondary" style="margin-top: 16px;">Clear Network Lookup Cache</button>
+          </div>
+        </section>
+
+        <!-- VIEW 12: BACKUP & SETTINGS -->
+        <section id="view-settings" class="workspace-view">
+          <div class="hn-grid-2">
+            <div class="hn-card">
+              <h2>HonePack Backup &amp; Restore</h2>
+              <p class="hn-secondary hn-text-small">Versioned, portable backup package. Connects with HoneNurse product family without vendor lock-in.</p>
+              <button id="btn-export-honepack-json" class="hn-btn hn-btn-primary" style="width: 100%; margin-bottom: 12px;">Export HonePack (.honepack.json)</button>
+              
+              <div class="hn-form-group">
+                <label class="hn-label" for="honepack-file-input">Restore from HonePack File</label>
+                <input type="file" id="honepack-file-input" accept=".json" class="hn-input">
+              </div>
+              <button id="btn-restore-honepack" class="hn-btn hn-btn-secondary" style="width: 100%;">Restore Selected HonePack</button>
+            </div>
+
+            <div class="hn-card">
+              <h2>Entitlements &amp; Testing Controls</h2>
+              <div class="hn-form-group">
+                <label class="hn-label">Feature Testing Mode</label>
+                <div class="hn-panel-quiet">
+                  <div class="hn-flex-between">
+                    <div>
+                      <b>HoneLENS Plus Testing Mode</b>
+                      <div class="hn-secondary hn-text-xs">Unlock all paid features (EBP Builder, DOCX Audit, Dosage Exam Simulator) for evaluation.</div>
+                    </div>
+                    <input type="checkbox" id="chk-test-plus" style="width: 20px; height: 20px;" checked>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hn-form-group" style="margin-top: 16px;">
+                <label class="hn-label" for="input-license-key">Activate License Key</label>
+                <div class="hn-flex-gap">
+                  <input type="text" id="input-license-key" class="hn-input" placeholder="HONELENS-PLUS-XXXX-XXXX">
+                  <button id="btn-activate-license" class="hn-btn hn-btn-primary">Activate</button>
+                </div>
+              </div>
+
+              <div id="license-status-display" class="hn-secondary hn-text-xs" style="margin-top: 8px;"></div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="workspace.js"></script>
+</body>
+</html>

@@ -1,0 +1,270 @@
+/* HoneLENS Full-Page Workspace Layout & Styling */
+
+.workspace-layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--hn-paper);
+}
+
+/* Sidebar */
+.workspace-sidebar {
+  width: 250px;
+  background-color: var(--hn-white);
+  border-right: 1px solid var(--hn-hair);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--hn-s3);
+  padding: var(--hn-s4);
+  border-bottom: 1px solid var(--hn-hair);
+}
+
+.brand-title {
+  font-family: var(--hn-sans);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--hn-navy);
+  line-height: 1.1;
+  display: block;
+}
+
+.brand-tagline {
+  font-family: var(--hn-sans);
+  font-size: 11px;
+  color: var(--hn-slate);
+  display: block;
+}
+
+.sidebar-nav {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--hn-s3) var(--hn-s2);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.nav-section-title {
+  font-family: var(--hn-sans);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--hn-slate);
+  padding: 12px 10px 4px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: var(--hn-radius);
+  border: none;
+  background: none;
+  color: var(--hn-navy);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s;
+}
+
+.nav-item:hover {
+  background-color: var(--hn-panel);
+}
+
+.nav-item.active {
+  background-color: var(--hn-teal-tint);
+  color: var(--hn-teal);
+  font-weight: 600;
+}
+
+.nav-item.active svg {
+  stroke: var(--hn-teal);
+}
+
+.sidebar-footer {
+  padding: var(--hn-s3) var(--hn-s4);
+  border-top: 1px solid var(--hn-hair);
+}
+
+/* Main Content Area */
+.workspace-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.workspace-topbar {
+  padding: var(--hn-s3) var(--hn-s5);
+  background-color: var(--hn-white);
+  border-bottom: 1px solid var(--hn-hair);
+}
+
+.workspace-content-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--hn-s5);
+}
+
+.workspace-view {
+  display: none;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.workspace-view.active {
+  display: block;
+}
+
+/* DOCX Drop Area */
+.docx-drop-area {
+  border: 2px dashed var(--hn-field);
+  border-radius: var(--hn-radius-lg);
+  padding: 36px 20px;
+  text-align: center;
+  background-color: var(--hn-panel);
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 12px;
+}
+
+.docx-drop-area:hover, .docx-drop-area.dragover {
+  border-color: var(--hn-teal);
+  background-color: var(--hn-teal-tint);
+}
+
+/* Stat Cards Grid */
+.audit-stat-cards-grid, .exam-score-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: var(--hn-s3);
+  margin-top: var(--hn-s3);
+}
+
+.audit-stat-box {
+  background-color: var(--hn-panel);
+  border: 1px solid var(--hn-hair);
+  border-radius: var(--hn-radius);
+  padding: 12px;
+  text-align: center;
+}
+
+.audit-stat-num {
+  font-family: var(--hn-mono);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--hn-navy);
+  line-height: 1.2;
+}
+
+/* 2x2 Full Table */
+.table-2x2-full {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.table-2x2-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 12px;
+  align-items: center;
+  background-color: var(--hn-panel);
+  padding: 10px 14px;
+  border-radius: var(--hn-radius);
+}
+
+.table-cell-header {
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--hn-navy);
+}
+
+.stats-metric-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 14px;
+}
+
+/* Flashcards Stage */
+.fc-flashcard-stage {
+  perspective: 1000px;
+}
+
+.fc-card-inner {
+  background-color: var(--hn-white);
+  border: 1px solid var(--hn-hair);
+  border-radius: var(--hn-radius-lg);
+  padding: 24px;
+  min-height: 180px;
+  box-shadow: var(--hn-shadow);
+}
+
+.leitner-boxes-bar {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.leitner-box-pill {
+  flex: 1;
+  background-color: var(--hn-panel);
+  border-radius: var(--hn-radius);
+  padding: 6px;
+  text-align: center;
+  font-size: 11px;
+}
+
+.leitner-box-pill.has-due {
+  background-color: var(--hn-teal-tint);
+  border: 1px solid var(--hn-teal);
+  color: var(--hn-teal);
+  font-weight: 700;
+}
+
+/* Exam Timer & Header */
+.exam-header-bar {
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--hn-hair);
+  margin-bottom: 16px;
+}
+
+.exam-timer-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--hn-panel);
+  border: 1px solid var(--hn-field);
+  border-radius: var(--hn-radius);
+  padding: 4px 10px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--hn-navy);
+}
+
+.exam-question-prompt-box {
+  background-color: var(--hn-panel);
+  border-radius: var(--hn-radius);
+  padding: 18px 20px;
+  border-left: 4px solid var(--hn-teal);
+}
+
+.cite-rendered-entry {
+  background-color: var(--hn-panel);
+  border-left: 4px solid var(--hn-teal);
+  padding: 12px 16px;
+  font-size: 14px;
+  line-height: 1.6;
+}

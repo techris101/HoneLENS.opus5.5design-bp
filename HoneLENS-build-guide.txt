@@ -1,0 +1,525 @@
+HoneLENS BUILD GUIDE
+Product definition, features, paywall, payment rail, and entitlement records
+Prepared 4 October 2026
+
+
+1. PROJECT DESCRIPTION
+
+HoneLENS is a standalone browser extension for nursing students who need to check research sources, understand study results, practice nursing calculations, and organize their own evidence-based practice (EBP) work.
+
+HoneLENS is part of the HoneNurse product family, but it must operate as a complete product by itself. Free study and research utilities should work without an account. A student who later uses other HoneNurse products should be able to move or connect their HoneLENS work through a portable, versioned HoneNurse export format. Do not require the HoneNurse website, KDP store, or another extension to use HoneLENS.
+
+The product is AI-free by construction:
+
+- No generative AI, LLM calls, hosted or on-device AI models, OCR/neural-network models, semantic/vector search, generated summaries, generated flashcards, auto-written assignments, AI scoring, or AI recommendations.
+- Calculations use explicit formulas.
+- Source checks use explicit rules and linked bibliographic metadata.
+- Students select sources, answer appraisal prompts, interpret findings, and write their own conclusions.
+- No document, highlight, note, or assignment text is uploaded for source checking or payment verification.
+- Optional PubMed/Crossref lookups require the internet and must disclose exactly which identifier or search terms are sent. They are metadata requests, not AI requests.
+- A no-AI product does not guarantee that every instructor permits every extension feature. Course rules may differ by instructor and assignment; students must follow their course policy.
+
+The extension is local-first, not necessarily fully offline. Saved work, calculation tools, cards, and previously retrieved metadata should remain available offline. Fresh DOI/PMID and update/retraction lookups require a connection and must show when they were last checked.
+
+Do not include OCR for scanned pages in the strict no-model version. Current Tesseract OCR includes LSTM/neural-network recognition, even when processing is local. Support selectable-text PDFs and keep image-only documents as attachments without claiming that their text was extracted. Do not use the machine-learned FSRS optimizer; use a fixed, documented Leitner-style review schedule.
+
+
+2. DESIGN PHILOSOPHY
+
+Apply the existing HoneNurse design system directly. HoneLENS is a product surface within the same family, not a new independent visual brand. Reuse the approved logo system, typography, palette, component rules, spacing, and tone. Do not redesign the parent system or invent a new color palette for the extension.
+
+Brand relationship:
+- Parent brand: HoneNurse.
+- Product name: Hone Lens / HoneLENS, following the established product naming pattern.
+- Product line: “Keep trusted sources in view.”
+- Parent slogan: “Sharpen your clinical judgment.”
+- The product may use the idea “Show your sources. Keep your judgment yours.” as supporting copy; do not describe an activity log as proof of authorship.
+
+Approved visual direction to apply:
+- Mature, gentle, neat, restrained, readable, and calm.
+- Manrope across the extension and the HoneNurse family. Use bold for headings and regular/medium for body and controls. Use tabular numerals for scores and timers.
+- Evergreen Ink #143B3B for primary text, navigation, wordmark, and dark surfaces.
+- Hone Edge #C9E85E for actions, progress, focus, and the logo accent. Do not use it as small body text where contrast is weak.
+- Warm Paper #F5F6F0 for reading backgrounds.
+- White #FFFFFF for cards and reversed text.
+- Quiet Slate #667875 for secondary text.
+- Keep the extension popup compact, but do not shrink the website into a narrow panel. Use an appropriately sized side panel or full-page workspace for multi-paper tables and document checks.
+- Preserve accessible focus indicators, keyboard navigation, readable type scaling, and status meaning that does not rely on color alone.
+- Avoid generic medical imagery and clutter. Explain why a check passed or failed in plain, measured language.
+- Make page capture and promotion secondary to the nursing research workflow.
+
+
+3. FEATURE INVENTORY AND PAYWALL
+
+MARKETED FREE FEATURES
+
+3.1 SOURCE CHECK
+
+Purpose:
+Help a student compare one source with the requirements of an assignment.
+
+Behavior:
+- The student enters the criteria: publication date window, source type, design requirement, population, or other explicit rubric fields.
+- Retrieve bibliographic metadata by DOI, PMID, or supported article page when possible.
+- Display available title, authors, publication date, journal, identifiers, publication type, and design signals.
+- Each criterion returns “matches,” “does not match,” or “unknown,” with the rule and source of the result visible.
+- Allow an optional evidence-framework selection and clinical question type. Only then may the extension show a provisional design-based category; label it “possible framework match—verify.” If no framework is selected, show design metadata only.
+- Show any matched Crossref/Retraction Watch update or retraction record with a link and date.
+- If no record is found, say “No matching record found in this lookup.” Never say “not retracted.”
+- Do not automatically certify peer review, article quality, risk of bias, assignment acceptance, or clinical value.
+- Show “What this check means” next to every result, including data source, last checked time, and limitations.
+
+Paywall:
+- Free: one-source checks and student-entered assignment criteria.
+- Paid: batch checking across a source list and checking those records against a selected DOCX; see Source Audit.
+
+3.2 DOSAGE TRAINER
+
+Purpose:
+Provide repeatable nursing mathematics practice without AI.
+
+Problem types:
+- Unit conversion.
+- Tablet and liquid doses.
+- IV rates and infusion times.
+- Weight-based calculations.
+- Pediatric calculation practice.
+- Reconstitution.
+- Other dosage templates only after nursing-educator review.
+
+Behavior:
+- Generate practice items from deterministic, bounded templates and validated values; never call an AI model.
+- Show the formula, unit conversions, dimensional-analysis steps, answer, and rounding rule.
+- Let students select the conventions taught by their program.
+- Track practice locally by calculation type and user-selected errors.
+- State that the tool is for education, not patient-specific advice or medication authorization.
+- A nursing educator reviews templates, generated-value ranges, answer keys, units, and rounding behavior before release.
+
+Paywall:
+- Free: a generous, continuing practice bank and worked explanations.
+- Paid: timed exams, advanced sets, and mistake analytics through Dosage Exam Simulator.
+
+3.3 STATS CALCULATOR
+
+Purpose:
+Help students calculate and read common effect measures using explicit formulas.
+
+Behavior:
+- Accept student-entered event counts or rates and calculate risk ratio (RR), odds ratio (OR), absolute risk reduction/difference (ARR), relative risk reduction (RRR), number needed to treat (NNT), or number needed to harm (NNH) when applicable.
+- Ask for the comparison groups, outcome direction, denominator, and follow-up period.
+- Require baseline/control risk for absolute effects and NNT/NNH. Do not derive a context-free NNT from an OR alone.
+- Permit the student to enter a reported relative estimate and confidence interval. Use fixed explanations specific to OR, RR, or hazard ratio (HR); identify whether the interval includes the null value of 1.
+- State that an interval containing 1 does not prove “no effect,” and that crossing the null is not a measure of clinical importance.
+- Show the formula, inputs, units, assumptions, and rounding.
+- Do not parse a highlighted sentence and silently infer its variables or meaning.
+- Have a nurse educator or statistician review definitions, formulas, edge cases, and wording before release.
+
+Paywall:
+- Core calculator is free. No paid AI interpretation tier.
+
+
+MARKETED PAID FEATURES
+
+3.4 EBP ASSIGNMENT BUILDER
+
+Purpose:
+Take a student from assignment instructions to a source-linked comparison and an editable submission packet.
+
+Includes:
+- Multiple course and assignment workspaces.
+- Student-created rubric profiles and course-specific rules.
+- PICOT fields the student completes.
+- PubMed query builder that combines terms and synonyms selected by the student; show the exact query.
+- Label the query “a starting search, not exhaustive.” Do not claim that it replaces a librarian or comprehensive database search.
+- Reading sheet with original, design-specific prompts such as question, design, sample, measurement, findings, limitations, and relevance.
+- Student-selected source quotations anchored to URL or PDF page. Answers remain student-authored.
+- Multi-study evidence/synthesis matrix with editable columns and visible source links for each row or entry.
+- Editable Submission Pack export to Word/CSV. The export contains student-entered notes, metadata, citations, criteria, and tables; it does not write conclusions or assignment prose.
+- Preserve the distinction between quoted source text and the student’s own words.
+- Do not auto-score study quality or generate an appraisal.
+
+Free taste:
+- One saved assignment.
+- Up to three evidence rows.
+- CSV export.
+
+Paid:
+- Multiple workspaces, saved rubric profiles, full matrix capacity, and Word/CSV Submission Packs.
+
+License boundary:
+- Use original wording for appraisal prompts. Do not reproduce CASP or JBI checklist text in a commercial product without the required commercial permission/license.
+
+3.5 DOSAGE EXAM SIMULATOR
+
+Purpose:
+Extend the free trainer into a structured, timed test-preparation workflow.
+
+Includes:
+- Timed practice exams.
+- Student-selected program pass target; do not present any one threshold as universal.
+- Student-selected rounding and unit conventions.
+- More advanced deterministic problem sets.
+- Local mistake analytics by calculation type and unit/rounding issue.
+- Worked review after an exam.
+- No patient-specific dosing decisions, drug recommendations, or clinical “safe dose” outputs.
+- Human educator review of every template and every answer path.
+
+Free taste:
+- One sample exam or limited sample mode.
+
+Paid:
+- Full exam sets, advanced practice, local result history, and mistake analytics.
+
+3.6 SOURCE AUDIT
+
+Purpose:
+Check a group of sources and a student-selected DOCX before submission.
+
+Source checks:
+- DOI/PMID resolution and available bibliographic metadata.
+- Duplicate DOI/PMID or likely duplicate records; title-based matches must be shown as candidates for confirmation.
+- Date-window fit based on the student’s own selected cutoff.
+- Crossref/Retraction Watch update and retraction record matches.
+- Missing or conflicting source fields where a deterministic comparison is possible.
+
+DOCX checks:
+- Parse the selected file locally on the device.
+- Match parsed in-text citations to reference-list entries and identify unmatched items.
+- Check parsed APA 7 fields for visible omissions or formatting inconsistencies.
+- Compare source dates with the assignment window.
+- Scan against an abbreviation list provided by the student or course. Do not imply a single abbreviation rule fits all nursing programs.
+- Put “Do Not Use” abbreviation checking here, not inside the dosage problem generator.
+
+Output:
+- Show each flagged passage/entry and why it was flagged.
+- Show the matched metadata record and lookup time.
+- Mark anything that could not be parsed or verified as “unknown” or “not checked.”
+- Never rewrite the DOCX, generate missing text, or upload the file.
+- Never claim that an absent Crossref match proves that no update/retraction exists.
+
+Free taste:
+- One audit preview with an issue count.
+
+Paid:
+- Full batch results, detailed local report, saved audit within the assignment workspace, and repeated checks.
+
+
+QUIET FEATURES AND SOFT TIES
+
+These are included and easy to find in the product, but do not need separate headline cards on the pricing page. “Quiet” does not mean concealing a data or permission practice.
+
+3.7 PAGE CAPTURE
+- Capture visible area, a selected region, or the full page by best-effort scrolling and stitching.
+- Save the page URL, title, and capture time where available.
+- Preserve the original page and source link beside the capture.
+- Explain that protected browser pages and some lazy-loaded or complex scrolling pages cannot be captured reliably.
+
+3.8 SOURCE CLIPPER AND SOURCE LOCATORS
+- Save a user-selected excerpt with title, URL, time, and PDF page/section locator when available.
+- A selected excerpt is a quotation until the student edits or comments on it.
+- Return to the original source location when possible.
+
+3.9 DOCUMENT INTAKE
+- Read webpage text, selectable-text PDFs, and DOCX documents.
+- Keep image-only documents as attachments. Do not OCR scans or handwriting in the strict no-model build.
+- Report extraction failures instead of silently treating a partial extraction as a complete document.
+- Run DOCX parsing locally for Source Audit.
+
+3.10 HIGHLIGHTS, NOTES, AND BASIC READING SHEET
+- Add highlights and margin notes.
+- Store a source/page locator with each highlight.
+- Distinguish quoted material from student-authored notes in the UI and exports.
+- Provide basic static reading prompts at no cost; the paid Assignment Builder provides design-specific multi-study structure.
+
+3.11 LOCAL LIBRARY, LITERAL SEARCH, AND FILTERS
+- Organize sources by course, assignment, date, and tags.
+- Search imported source text and student notes using literal text matching.
+- Filter by source type, date, tag, course, or check status.
+- Do not use semantic search, vector embeddings, model-based ranking, or inferred topic labels.
+
+3.12 APA 7 CITATION MAKER
+- Free utility for creating and editing citations from known source metadata.
+- Format known fields and visibly flag missing information.
+- Never guess an author, date, DOI, journal, title, or page range.
+- Save citations with their source record.
+
+3.13 SOURCE-LINKED FLASHCARDS
+- The student writes each question and answer.
+- Optionally begin a blank card from a selected source excerpt; do not auto-generate an answer.
+- Store a source/page link with the card.
+- Use a fixed, documented Leitner-style schedule. Do not use FSRS optimization or ML.
+- Export to Anki-compatible text so cards remain portable.
+
+3.14 LOCAL BACKUP AND HONEPACK PORTABILITY
+- Provide a user-initiated backup and restore.
+- Use a versioned, documented HoneNurse-compatible package containing the user’s selected data and source references.
+- Avoid a proprietary lock-in format. Allow students to export their work even if a subscription ends.
+- Do not include a source document in a backup unless the student selected that document for inclusion.
+
+3.15 OPTIONAL ACTIVITY LOG
+- Log only relevant actions taken inside HoneLENS, such as clipping a source, completing a checklist field, or editing a note.
+- Let the student disable, clear, or export the log.
+- Do not record keystrokes, other apps, or general browsing history.
+- Describe it as a personal research trail. It is not proof of authorship, proof of AI non-use outside HoneLENS, or an academic-integrity certificate.
+
+3.16 “WHAT THIS CHECK MEANS” EXPLANATIONS
+- For every automated status, explain the rule, the data source, the lookup time, and known limitations.
+- Examples: a date-window match only confirms a date; a metadata match does not certify peer review; no retraction match does not establish that none exists.
+
+3.17 NETWORK DISCLOSURE AND LOCAL PRIVACY CONTROLS
+- Clearly state that student notes, highlights, assignments, and DOCX files stay local.
+- Before an optional lookup, identify the external service and the exact data being sent (for example, DOI, PMID, or search terms).
+- Allow metadata results to be cached locally with retrieval date.
+- Publish an accurate privacy policy and Chrome Web Store disclosures, including local processing and storage.
+- Request only permissions needed for existing features and only when the user action requires them.
+
+3.18 ACCESSIBILITY AND RECOVERY
+- Keyboard operation and visible focus.
+- Readable zoom and scalable layout.
+- Status labels that do not rely on color alone.
+- Clear save, import, export, cancellation, and recovery states.
+- Preserve work if capture, parsing, lookup, or payment verification is interrupted.
+
+3.19 HONE NURSE LINKS
+- Offer optional, contextual links to related HoneNurse learning or practice material.
+- Keep links dismissible and disable-able.
+- Use a modest frequency cap; do not interrupt a capture, calculation, appraisal, or export.
+- Do not infer sensitive interests from browsing or send reading topics to an ad/analytics service.
+- Prefer a user-invoked “More from HoneNurse” link over a forced weekly popup.
+
+
+4. PAYMENT RAIL
+
+VERIFIED CHROME WEB STORE POSITION
+
+Current Chrome Web Store documentation does not require Google’s payment system for extension subscriptions. Google’s current Developer Agreement says Google will not track or process paid-product transactions, authenticate paid users, maintain payment records, or handle taxes; the developer is responsible. The current payment policy also requires the developer to identify themselves as the seller and to publish clear product terms, including refund/return information.
+
+Therefore:
+- Publish HoneLENS as a free extension with clearly described optional premium features.
+- Use an external payment provider, such as Lemon Squeezy, for checkout and subscriptions.
+- The Chrome Web Store listing must clearly say which features are free and which require payment.
+- Identify HoneNurse/the seller accurately; show subscription renewal, cancellation, refund, and support terms.
+- Recheck the current Chrome Web Store Developer Agreement and policies before publishing, because policies can change.
+
+Lemon Squeezy is a practical candidate because it supports hosted checkout, subscription billing, customer portal, license keys, and webhooks, and operates as a Merchant of Record for applicable transaction taxes. Its published base fee is 5% + $0.50 per transaction, with possible additional fees depending on payment type/location. Confirm merchant-country eligibility, verification, and payout support for the actual business before committing.
+
+4.1 LEMON SQUEEZY PRODUCT CONFIGURATION
+
+Create:
+- A HoneLENS product in the Lemon Squeezy dashboard.
+- A free extension listing separately in the Chrome Web Store.
+- One premium subscription product with monthly and annual variants, or one-time variants if that is the chosen plan design.
+- Enable license keys on paid variants if using Lemon’s license-key activation path.
+- Set reasonable activation limits for devices and define the customer support/refund terms.
+- Configure a customer portal so purchasers can update payment method, view invoices, or cancel without HoneNurse handling card data.
+
+Keep all premium features in one understandable HoneLENS Plus entitlement unless there is a verified reason to create multiple paid tiers. The extension should not require a paid installation to use its advertised free features.
+
+4.2 CHECKOUT FLOW
+
+Recommended flow:
+1. The student selects Upgrade in HoneLENS.
+2. Open a Lemon Squeezy hosted checkout in a regular browser tab, or open a HoneNurse checkout webpage that embeds Lemon’s overlay.
+3. The extension must not load Lemon.js or other remote executable JavaScript inside the extension package/popup/service worker. Manifest V3 requires extension logic to be included with the package; use the hosted checkout page outside the extension.
+4. The checkout collects payment data. HoneLENS must never receive or store card numbers.
+5. After payment, Lemon sends a receipt and, if enabled, a license key. The return page is a user-experience step only; do not grant paid access solely because the browser reached a success URL.
+6. Activate the license or retrieve the server-side entitlement.
+7. Refresh the paid feature state and show the plan name and renewal/access status.
+
+Lemon Squeezy permits custom checkout data, which can include an internal HoneNurse user ID or one-time checkout reference. Do not use an untrusted client-supplied email or user ID as proof of payment. The webhook or license validation must confirm the purchase.
+
+4.3 CODE COMPONENTS
+
+Extension-side code:
+- Upgrade screen/button that opens the hosted checkout URL.
+- Plan/entitlement display for Free and HoneLENS Plus.
+- Feature gate that enables paid-only UI after entitlement confirmation.
+- License-key activation form if using license keys.
+- Local cache for the last confirmed entitlement and its expiry/grace metadata.
+- User action to refresh entitlement and deactivate a device/license instance.
+
+Server-side code if using an account/database:
+- POST /billing/checkout: authenticate the HoneNurse user, call Lemon Squeezy’s authenticated API, attach internal user ID as checkout custom data, return the hosted checkout URL.
+- POST /webhooks/lemonsqueezy: accept Lemon’s webhook, verify its signature using the webhook secret, reject invalid signatures, and process each event idempotently.
+- GET /api/entitlements: authenticate the extension account and return the current feature plan/status from the entitlement record.
+- Optional POST /license/activate and POST /license/validate: proxy or manage device activation without placing the general Lemon API key in the extension.
+- Customer portal route/button: open Lemon’s customer portal for billing self-service.
+
+Secrets:
+- Store the Lemon Squeezy API key and webhook signing secret in the server’s environment/secret store.
+- Never put those secrets in extension JavaScript, a public repository, a website bundle, a mobile app, or a downloadable config file.
+- Lemon’s separate License API uses the customer’s license key for activation/validation; do not confuse it with the authenticated store API. Store API keys must remain server-side.
+- The extension package is inspectable. A local feature gate deters casual unlicensed use but is not strong DRM against a technically skilled user who edits the extension.
+
+Webhook events to process:
+- order_created and order_refunded.
+- subscription_created and subscription_updated.
+- subscription_cancelled, subscription_resumed, subscription_expired, subscription_paused, and subscription_unpaused where used.
+- subscription_payment_success, subscription_payment_failed, subscription_payment_recovered, and subscription_payment_refunded.
+- license_key_created and license_key_updated if license keys are enabled.
+
+The webhook handler should:
+- Verify the request signature against the configured webhook secret.
+- Lemon payloads should not be assumed to provide a globally unique delivery ID. Construct a deduplication key from event name, resource type and resource ID, plus the resource update timestamp when available; store a canonical-payload hash as a fallback. Apply each state transition idempotently.
+- Map Lemon product/variant IDs to known HoneLENS plan IDs.
+- Update access after purchase, renewal, plan change, cancellation, expiry, refund, or payment failure according to the displayed terms.
+- Preserve access through any explicitly configured paid-through period; do not revoke solely on a cancellation request if the subscription remains active through its period.
+- Log processing result without storing payment card data or full sensitive payloads unnecessarily.
+
+
+5. DATABASE AND WHO-PAID RECORDS
+
+Lemon Squeezy already maintains customer, order, subscription, license-key, and payment records in its dashboard and API. That is the billing system of record. A separate database is not automatically required just to know whether a license key is valid.
+
+The Lemon License API can activate, validate, and deactivate license keys. For subscriptions, a license key can follow the subscription lifecycle. The purchaser receives the key; HoneLENS stores the activation instance ID locally and validates it periodically. This can be the lowest-complexity design if:
+- Free features work without an account.
+- Research content stays on-device.
+- Premium entitlement is a simple Free/Plus switch.
+- No cross-device content sync or detailed user profile is required.
+
+In that license-only design:
+- Lemon’s dashboard/API is the record of purchasers and licenses.
+- No application database is needed for a separate customer/plan list.
+- Store license key and activation instance data in extension local storage, protect it from accidental display, and provide deactivate/reinstall handling.
+- Define an offline behavior: keep the last verified Plus entitlement for a documented grace period, then request validation when online. Never erase student work when a license expires.
+
+An application database is recommended if HoneLENS adds user accounts, multiple-device account access, automatic purchase-to-account matching, customer support recovery, more than one plan, shared entitlement across HoneNurse products, or optional cloud sync.
+
+In that design:
+- Lemon Squeezy remains the record of orders, payment status, taxes, and subscription source events.
+- HoneNurse’s database stores only the minimum application identity and entitlement mirror needed to decide which features are unlocked.
+- Do not store card numbers or payment credentials.
+- Keep study documents/notes out of the billing database. Local project data remains in the extension unless the student explicitly enables a separate sync feature.
+
+Suggested minimum relational records:
+
+users
+- id: internal UUID.
+- email: only if account login/support requires it.
+- created_at, updated_at.
+
+plans
+- id: internal plan name such as free or plus.
+- lemon_product_id and lemon_variant_id.
+- feature_entitlements: named features/limits associated with the plan.
+
+subscriptions
+- id: internal UUID.
+- user_id.
+- lemon_customer_id.
+- lemon_order_id, where applicable.
+- lemon_subscription_id.
+- lemon_product_id and lemon_variant_id.
+- status: active, on_trial, paused, past_due, cancelled-but-paid-through, expired, refunded, or other mapped state.
+- current_period_end / ends_at.
+- updated_at.
+
+license_instances (only if using per-device keys)
+- id: internal UUID.
+- user_id or purchase reference.
+- lemon_license_key_id; avoid storing plaintext key unless required.
+- lemon_instance_id.
+- device label, activation status, created_at, last_validated_at.
+
+webhook_events
+- deduplication_key built from event name, resource type/ID, and update timestamp where available; canonical payload hash as fallback.
+- event_name.
+- received_at, processed_at.
+- processing_status and error summary.
+- unique constraint on deduplication_key; keep processing idempotent because retries or reordered events may occur.
+- store only the payload fields needed to reconcile entitlements; minimize retention of personal data.
+
+entitlements
+- user_id or installation_id.
+- plan_id.
+- feature keys/limits.
+- status.
+- source subscription/license reference.
+- valid_until or last_confirmed_at.
+- updated_at.
+
+Database answer:
+- Lemon Squeezy provides billing/customer/license records, so a separate database is optional for the first local-first version.
+- Lemon Squeezy does not replace an application authentication and entitlement service if HoneNurse needs accounts, cross-device entitlements, app-specific plan rules, or integrations with other HoneNurse products.
+- When that need exists, use a small managed relational database such as PostgreSQL and mirror only the minimum entitlement state from signed webhooks.
+- Do not build a second payment ledger that attempts to replace Lemon Squeezy’s order/subscription records.
+
+
+6. END-STATE FEATURE ACCESS SUMMARY
+
+FREE, NO ACCOUNT REQUIRED:
+- Source Check for one source at a time.
+- Dosage Trainer.
+- Stats Calculator.
+- Page capture.
+- Source clipper, highlights, notes, and basic reading sheet.
+- Web/selectable-PDF/DOCX intake.
+- Local literal-search library and filters.
+- APA 7 citation maker.
+- Source-linked student-authored flashcards with fixed Leitner review and Anki export.
+- Local backup/restore and HoneNurse-compatible export/import.
+- Offline access to saved work.
+- The “What this check means” and network-disclosure interfaces.
+
+PAID, HONE LENS PLUS:
+- Multiple EBP course/assignment workspaces and rubric profiles.
+- Full EBP Assignment Builder: PICOT, student-built PubMed query, original appraisal prompts, multi-study matrix, and Word/CSV Submission Pack.
+- Dosage Exam Simulator.
+- Full batch Source Audit including selected DOCX scan, detailed flags, update/retraction matches, user-defined date criteria, and custom abbreviation list.
+
+PAYMENT SYSTEM:
+- Lemon Squeezy checkout, subscription/license record, and customer billing portal.
+- Entitlement activation/validation, either directly through the License API for a simple local app or through a HoneNurse backend for account-based access.
+- Refund/cancel/payment-failure reconciliation.
+
+
+7. OFFICIAL DOCUMENTATION
+
+Chrome Web Store payment policy:
+https://developer.chrome.com/docs/webstore/program-policies/accepting-payment
+
+Chrome Web Store Developer Agreement, pricing and payments:
+https://developer.chrome.com/docs/webstore/program-policies/terms
+
+Chrome Web Store privacy and user-data disclosure:
+https://developer.chrome.com/docs/webstore/program-policies/user-data-faq
+
+Chrome Web Store Manifest V3 requirements:
+https://developer.chrome.com/docs/webstore/program-policies/mv3-requirements
+
+Lemon Squeezy pricing:
+https://www.lemonsqueezy.com/pricing
+
+Lemon Squeezy fees:
+https://docs.lemonsqueezy.com/help/getting-started/fees
+
+Lemon Squeezy hosted checkout, overlay, and custom checkout data:
+https://docs.lemonsqueezy.com/guides/developer-guide/taking-payments
+
+Lemon Squeezy webhooks and signature verification:
+https://docs.lemonsqueezy.com/help/webhooks
+
+Lemon Squeezy webhook event types:
+https://docs.lemonsqueezy.com/help/webhooks/event-types
+
+Lemon Squeezy License API:
+https://docs.lemonsqueezy.com/api/license-api
+
+Lemon Squeezy license key activation and validation guide:
+https://docs.lemonsqueezy.com/guides/tutorials/license-keys
+
+Lemon Squeezy Merchant of Record:
+https://www.lemonsqueezy.com/reporting/merchant-of-record
+
+Tesseract OCR engine documentation:
+https://github.com/tesseract-ocr/tessdoc
+
+Anki FSRS documentation:
+https://docs.ankiweb.net/deck-options.html
+
+CASP commercial licensing reference:
+https://casp-uk.net/referencing/
+
+Crossref Retraction Watch metadata:
+https://www.crossref.org/documentation/retrieve-metadata/retraction-watch/
+
